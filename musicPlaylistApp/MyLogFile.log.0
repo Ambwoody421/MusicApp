@@ -8034,3 +8034,419 @@ Oct 03, 2018 7:27:18 PM app.config.MyLog logMessage
 INFO: Success validating Session: e869c511-16d6-4eb6-84ca-dc61a869e589
 Oct 03, 2018 7:28:57 PM app.config.MyLog logMessage
 INFO: Success validating Session: e869c511-16d6-4eb6-84ca-dc61a869e589
+Oct 04, 2018 8:03:08 PM app.config.MyLog logMessage
+INFO: Success validating User: Tim
+Oct 04, 2018 8:03:08 PM app.config.MyLog logMessage
+INFO: Session: d9c0bc90-0e51-4e86-808f-99e3c1adf865  created for user: 28
+Oct 04, 2018 8:03:12 PM app.config.MyLog logMessage
+INFO: Success validating Session: d9c0bc90-0e51-4e86-808f-99e3c1adf865
+Oct 04, 2018 8:03:12 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:28:04 PM app.config.MyLog logMessage
+INFO: Success validating User: Tim
+Oct 04, 2018 8:28:05 PM app.config.MyLog logMessage
+INFO: Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42  created for user: 28
+Oct 04, 2018 8:28:10 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:28:10 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:34:24 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:34:24 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:34:26 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:34:26 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:34:34 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:34:34 PM app.config.MyLog logMessage
+INFO: Gathered all playlists in group: 3
+Oct 04, 2018 8:34:38 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:34:38 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:34:38 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 04, 2018 8:34:38 PM app.config.MyLog logMessage
+INFO: Retrieved All songs
+Oct 04, 2018 8:35:04 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:04 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:35:06 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:06 PM app.config.MyLog logMessage
+INFO: Gathered all playlists in group: 3
+Oct 04, 2018 8:35:07 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:07 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:07 PM app.config.MyLog logMessage
+INFO: Retrieved All songs
+Oct 04, 2018 8:35:07 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 04, 2018 8:35:41 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:41 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:35:42 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:42 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:42 PM app.config.MyLog logMessage
+INFO: Gathered all members in group: 3
+Oct 04, 2018 8:35:45 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:45 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:45 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 04, 2018 8:35:45 PM app.config.MyLog logMessage
+INFO: Retrieved All songs
+Oct 04, 2018 8:35:49 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:49 PM app.config.MyLog logMessage
+INFO: Gathered all playlists in group: 3
+Oct 04, 2018 8:35:52 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:52 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:52 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 04, 2018 8:35:52 PM app.config.MyLog logMessage
+INFO: Retrieved All songs
+Oct 04, 2018 8:35:54 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:54 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:54 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 12
+Oct 04, 2018 8:35:54 PM app.config.MyLog logMessage
+INFO: Retrieved All songs
+Oct 04, 2018 8:35:56 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:56 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:35:56 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 13
+Oct 04, 2018 8:35:56 PM app.config.MyLog logMessage
+INFO: Retrieved All songs
+Oct 04, 2018 8:37:52 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:37:52 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:39:23 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:39:23 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:39:23 PM app.config.MyLog logMessage
+INFO: Gathered all members in group: 3
+Oct 04, 2018 8:40:35 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:40:35 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:40:38 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:40:38 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:40:38 PM app.config.MyLog logMessage
+INFO: Gathered all members in group: 3
+Oct 04, 2018 8:42:04 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:42:04 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:42:06 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:42:06 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:42:06 PM app.config.MyLog logMessage
+INFO: Gathered all members in group: 3
+Oct 04, 2018 8:43:06 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:43:06 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:43:08 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:43:08 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:43:08 PM app.config.MyLog logMessage
+INFO: Gathered all members in group: 3
+Oct 04, 2018 8:44:00 PM app.config.MyLog logMessage
+INFO: Success validating User: Tim
+Oct 04, 2018 8:44:00 PM app.config.MyLog logMessage
+INFO: Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023  created for user: 28
+Oct 04, 2018 8:44:03 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:44:03 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:44:17 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:44:17 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:44:18 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:44:18 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:44:29 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:44:29 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:44:30 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:44:31 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:45:04 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:45:04 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:45:05 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:45:05 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:45:32 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:45:32 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:45:32 PM app.config.MyLog logMessage
+INFO: Gathered all members in group: 3
+Oct 04, 2018 8:46:12 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:46:12 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:46:13 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:46:13 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:46:51 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:46:51 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:47:01 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:47:01 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:48:09 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:48:09 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:48:12 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:48:12 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:48:50 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:48:50 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:48:50 PM app.config.MyLog logMessage
+INFO: Gathered all members in group: 3
+Oct 04, 2018 8:49:25 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:49:25 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:49:28 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:49:28 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:50:01 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:50:01 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:50:04 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:50:04 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:50:28 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:50:28 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:50:29 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:50:29 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:50:45 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:50:45 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:50:46 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:50:46 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:50:58 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:50:58 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:50:58 PM app.config.MyLog logMessage
+INFO: Gathered all members in group: 3
+Oct 04, 2018 8:51:24 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:51:24 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:51:24 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:51:24 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:51:47 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:51:47 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:51:48 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:51:48 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:51:54 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:51:54 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:51:54 PM app.config.MyLog logMessage
+INFO: Gathered all members in group: 3
+Oct 04, 2018 8:51:57 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:51:58 PM app.config.MyLog logMessage
+INFO: Gathered all playlists in group: 3
+Oct 04, 2018 8:52:00 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:52:00 PM app.config.MyLog logMessage
+INFO: Retrieved All songs
+Oct 04, 2018 8:52:00 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:52:00 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 04, 2018 8:52:04 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:52:27 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:52:27 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:52:27 PM app.config.MyLog logMessage
+INFO: Retrieved All songs
+Oct 04, 2018 8:52:27 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 04, 2018 8:52:29 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:53:54 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:53:54 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:53:55 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:53:55 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:54:12 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:54:12 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:54:13 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:54:13 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:55:03 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:55:03 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:55:04 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:55:04 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:55:25 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:55:25 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:55:26 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:55:26 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:55:44 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:55:44 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:57:04 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:57:04 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:57:05 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:57:05 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:57:23 PM app.config.MyLog logMessage
+INFO: Success validating Session: 080c03ab-05b0-4864-9ea0-2d97bfddee42
+Oct 04, 2018 8:57:23 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 8:58:36 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 8:58:36 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 9:00:32 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:00:32 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 9:00:39 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:00:39 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 9:00:49 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:00:49 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 9:01:24 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:01:24 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 9:01:31 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:01:31 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 9:02:15 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:02:15 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 9:03:29 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:03:29 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 9:03:52 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:03:52 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 9:03:57 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:03:57 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 9:04:09 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:04:09 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 9:04:33 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:04:33 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 9:05:33 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:05:33 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 9:05:56 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:05:56 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 04, 2018 9:06:03 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:06:03 PM app.config.MyLog logMessage
+INFO: Gathered all members in group: 3
+Oct 04, 2018 9:06:03 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:06:06 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:06:06 PM app.config.MyLog logMessage
+INFO: Gathered all playlists in group: 3
+Oct 04, 2018 9:06:08 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:06:08 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:06:08 PM app.config.MyLog logMessage
+INFO: Retrieved All songs
+Oct 04, 2018 9:06:08 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 04, 2018 9:06:30 PM app.config.MyLog logMessage
+INFO: Success validating Session: 866a2e54-4ef0-4f13-93a3-4c0ecf32c023
+Oct 04, 2018 9:06:30 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28

@@ -59,10 +59,10 @@ class CreateGroupPopup extends React.Component{
 
     render() {
         return (
-            <Popup className='col-lg-6' modal trigger={<button id={'createGroupButton'} className='greenBtn btn-primary'>Create New Group</button>} position="right center">
+            <Popup modal trigger={<button id={'createGroupButton'} className='btn-sm btn-success'>Create New Group</button>} position="right center">
                 <div>
                     <InputWrapper displayName='Group Name:' type='text' val={this.state.groupName} handleChange={this.handleChange} class='form-control' errorText={this.state.errorText} />
-                    <button className='greenBtn btn-primary' onClick={this.validateForm}>Create Group</button>
+                    <button className='btn-sm btn-success' onClick={this.validateForm}>Create Group</button>
                     {this.state.outcomeMessage}
                 </div>
               </Popup>

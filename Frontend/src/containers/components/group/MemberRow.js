@@ -33,7 +33,6 @@ class MemberRow extends React.Component{
     }
     render() {
         return (
-        <div>
         <div className='row groupMember'>
             <div className='col-lg-4'>
                 <h5>{this.props.name}</h5>
@@ -42,8 +41,6 @@ class MemberRow extends React.Component{
                 <ButtonWrapper id={this.props.id} class='redBtn btn-primary' click={this.removeMember} val={this.props.val} />
                 {this.state.status}
             </div>
-        </div>
-        <br />
         </div>
         );
     }

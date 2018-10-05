@@ -19,20 +19,12 @@ button:disabled {
     color: red;
 }
 
-.navigationLink {
-
-    background-color: #4dbd4d;
-}
 
 .btn:hover {
 
     background-color: #24d624;
 }
 
-.active {
-
-    background-color: green;
-}
 
 .redBtn {
 
@@ -88,4 +80,8 @@ button:disabled {
 .wrapText {
 
     white-space: normal;
+}
+
+.groupBackdrop {
+    background-color: slategrey;
 }

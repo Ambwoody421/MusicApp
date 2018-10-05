@@ -67,7 +67,7 @@ class Login extends React.Component {
     render() {
         return (
             <div className='jumbotron'>
-                <h3 className='offset-lg-5'>Welcome!</h3>
+                <h3 className='offset-lg-5 col-lg-2'>Welcome!</h3>
                 <div className='row'>
                     <InputWrapper id='name' divClass='col-lg-6 offset-lg-3' displayName='Email' type='text' class='form-control' val={this.state.name} errorText={this.state.formErrors.nameError} handleChange={this.handleChange} />
                 </div>
@@ -75,7 +75,7 @@ class Login extends React.Component {
                     <InputWrapper id='password' divClass='col-lg-6 offset-lg-3' displayName='Password' type='password' class='form-control' val={this.state.password} errorText={this.state.formErrors.passwordError} handleChange={this.handleChange} />
                 </div>
                 <div className='row'>
-                    <ButtonWrapper class='btn-primary btn-lg' divClass='offset-lg-5' val='Login' click={this.validateForm} />
+                    <ButtonWrapper class='btn-primary btn-lg text-center' divClass='offset-lg-5 col-lg-2' val='Login' click={this.validateForm} />
                 </div>
             </div>
             );

@@ -47,17 +47,15 @@ class AllGroups extends React.Component{
 
     render() {
 
-
-
         return (
-        <div>
-            <br />
-            <CreateGroupPopup />
-            <div className='row'><span>&nbsp;</span></div>
             <div>
-                {this.setUpGroups()}
+                <div>&nbsp;</div>
+                <CreateGroupPopup />
+                <div>&nbsp;</div>
+                <div className='col-xs-12'>
+                    {this.setUpGroups()}
+                </div>
             </div>
-        </div>
         );
     }
 

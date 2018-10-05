@@ -54,8 +54,7 @@ class MemberViewer extends React.Component{
     render() {
 
         return (
-        <div className='jumbotron'>
-            <div id='test' />
+        <div className='bg-dark text-white'>
             {this.state.d}
             <AddMemberPopup id={this.props.id} />
         </div>
