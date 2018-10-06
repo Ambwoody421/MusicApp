@@ -6,22 +6,20 @@ class SongVideo extends React.Component {
     constructor(props){
     super(props);
     this.state = {
-        audio: '',
         blob: null
     }
-    this.getAudio = this.getAudio.bind(this);
     this.downloadAudio = this.downloadAudio.bind(this);
     }
-    getAudio() {
 
-         this.setState({audio: 'http://'+Config.ip+':8080/song/getSongAudio?Filepath=' + this.props.filename});
-    }
     downloadAudio() {
         
-        fetch('http://'+Config.ip+':8080/song/getSongAudio?Filepath=' + this.props.filename, {
-            method: 'GET',
+        const request = {filepath: this.props.filename};
+        
+        fetch('http://'+Config.ip+':8080/song/getSongAudio', {
+            method: 'POST',
             credentials: 'include',
-            headers: {'Accept': 'application/octet-stream'},
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/octet-stream'},
+            body: JSON.stringify(request)
         }).then(status)
             .then(function(response) {
             return response.blob();
@@ -36,6 +34,8 @@ class SongVideo extends React.Component {
                    alert(error.message));
 
     }
+    
+    
     componentDidMount() {
 
         this.downloadAudio();

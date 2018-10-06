@@ -174,7 +174,7 @@ public class Group {
         DatabaseConnection connection = new DatabaseConnection();
         connection.setConnection();
 
-        String sql = "SELECT a.orderId, b.id, b.title, b.artist, b.filepath FROM music_database.group_queue a join music_database.songs b on a.songId=b.id WHERE groupId = ? ORDER BY a.orderId ASC";
+        String sql = "SELECT a.orderId, b.id, b.title, c.artist, b.filepath FROM music_database.group_queue a join music_database.songs b on a.songId=b.id join music_database.artists c on b.artist=c.id WHERE groupId = ? ORDER BY a.orderId ASC";
 
         try {
             PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);

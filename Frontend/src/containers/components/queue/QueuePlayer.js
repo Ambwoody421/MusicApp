@@ -1,7 +1,7 @@
 import React from 'react'
 import SongVideo from '../SongVideo'
 
-class QueueViewer extends React.Component{
+class QueuePlayer extends React.Component{
     render() {
         return (
             <div className='row'>
@@ -11,4 +11,4 @@ class QueueViewer extends React.Component{
         }
 
 }
-export default QueueViewer;
+export default QueuePlayer;

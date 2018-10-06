@@ -7,44 +7,83 @@ class AddQueueSongPopup extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            data: [],
-            selectedSong: null,
-            selectedSongName: null,
+            artistData: null,
+            selectedArtist: '',
+            selectedSong: '',
+            songData: null,
             outcomeMessage: ''
         }
         this.addSong = this.addSong.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.getAllArtist = this.getAllArtist.bind(this);
+        this.getAllSongs = this.getAllSongs.bind(this);
     }
 
     componentDidMount(){
-
-        fetch('http://'+Config.ip+':8080/song/getAllSongs', {
-                                    method: 'GET',
-                                    credentials: 'include',
-                                    headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}
-                                }).then(status)
-                                    .then(json)
-                                    .then(function(data) {
-
-                                        var array = data.map(function(s) {
-
-                                                    return <option value={s.id} id={s.title}>{s.title + ' by ' + s.artist}</option>;
-                                                });
-
-
-                                        return array;
-
-                                    }).then((arr) => {
-                                      this.setState({data: arr});
-                                    })
-                                    .catch(error =>
-                                    alert(error.message));
+        this.getAllArtist();
+        
     }
 
     handleChange(e) {
-        this.setState({selectedSong: e.target.value, selectedSongName: e.target.id});
+        if (e.target.id === 'selectedArtist') {
+            this.setState({[e.target.id]: e.target.value}, this.getAllSongs);
+        } else {
+            this.setState({[e.target.id]: e.target.value});
+        }
+       
     }
 
+    getAllArtist() {
+        fetch('http://'+Config.ip+':8080/song/getAllArtists', {
+            method: 'GET',
+            credentials: 'include'
+        }).then(status)
+            .then(json)
+            .then(function(data) {
+
+            var array = data.map(function(s) {
+
+                return <option value={s.id} id={s.name}>{s.name}</option>;
+            });
+
+
+            return array;
+
+        }).then((arr) => {
+            // initalize artist to blank
+            arr.push(<option value={''}>{''}</option>);
+            this.setState({artistData: arr});
+        })
+            .catch(error =>
+                   alert(error.message));
+    }
+    
+    getAllSongs() {
+        fetch('http://'+Config.ip+':8080/song/getAllSongsByArtist?artist=' + this.state.selectedArtist, {
+            method: 'GET',
+            credentials: 'include',
+            headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}
+        }).then(status)
+            .then(json)
+            .then(function(data) {
+
+            var array = data.map(function(s) {
+
+                return <option value={s.id} id={s.title}>{s.title}</option>;
+            });
+
+
+            return array;
+
+        }).then((arr) => {
+            
+            arr.push(<option value={''}>{''}</option>);
+            this.setState({songData: arr});
+        })
+            .catch(error =>
+                   alert(error.message));
+    }
+    
     addSong() {
 
         var obj = {groupId: this.props.id, songId: this.state.selectedSong};
@@ -66,16 +105,19 @@ class AddQueueSongPopup extends React.Component{
     }
 
     render() {
+    
         return (
-            <Popup className='col-lg-6' modal trigger={<button id={this.props.id + ':addSong'} className='greenBtn btn-primary'>Add Song</button>} position="right center">
-                <div>
+            <Popup style={{height: '40%'}} className='col-xs-7' modal trigger={<button id={this.props.id + ':addSong'} className='btn-sm btn-warning'>Add Song</button>} position="right center">
+                <div className='row justify-content-center'>
                     <h4>Add a Song:</h4>
-                    <select name='song' onChange={this.handleChange}>
-                        {this.state.data}
-                    </select>
-                    <button className='greenBtn btn-primary' onClick={this.addSong}>Add Song</button>
+                    Artist: <select id='selectedArtist' onChange={this.handleChange} value={this.state.selectedArtist}>
+                                {this.state.artistData}
+                            </select>
+                    <button className='btn-sm btn-warning' onClick={this.addSong}>Add Song</button>
                     {this.state.outcomeMessage}
                 </div>
+                {this.state.selectedArtist === '' ? null : <select id='selectedSong' onChange={this.handleChange} value={this.state.selectedSong}>
+                    {this.state.songData}</select>}
               </Popup>
         );
     }

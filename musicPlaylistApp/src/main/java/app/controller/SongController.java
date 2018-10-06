@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.dao.YoutubeAPI;
+import app.model.Artist;
 import app.model.Session;
 import app.model.Song;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -91,12 +92,11 @@ public class SongController {
      *
      * {filepath: required}
      */
-    @GET
+    @POST
     @Path("/getSongAudio")
-    public Response retrieveSongBlob(@QueryParam("Filepath") String filepath, @CookieParam("sessId") String sessionId){
-
-        Song song = new Song();
-        song.setFilepath(filepath);
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    public Response retrieveSongBlob(Song song, @CookieParam("sessId") String sessionId){
 
         try {
 
@@ -138,6 +138,59 @@ public class SongController {
             List<Song> songList = Song.retrieveAllSongs();
 
             return Response.status(200).entity(songList).build();
+
+        } catch (Exception e) {
+            String s = "Failure";
+            return Response.status(400).entity(s).build();
+        }
+    }
+
+    /**Retrieve all songs by Artist
+     *
+     *
+     */
+    @GET
+    @Path("/getAllSongsByArtist")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response retrieveSongsByArtist(@CookieParam("sessId") String sessionId, @QueryParam("artist") Integer artist){
+
+
+        try {
+            //check if cookie was sent
+            if(sessionId == null ||  Session.validateSession(sessionId) == null){
+                return Response.status(403).entity("Session expired").build();
+            }
+
+            List<Song> songList = Song.retrieveSongsByArtist(artist);
+
+            return Response.status(200).entity(songList).build();
+
+        } catch (Exception e) {
+            String s = "Failure";
+            return Response.status(400).entity(s).build();
+        }
+    }
+
+    /**Retrieve all Artists
+     *
+     *
+     */
+    @GET
+    @Path("/getAllArtists")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response retrieveAllArtists(@CookieParam("sessId") String sessionId){
+
+        try {
+            //check if cookie was sent
+            if(sessionId == null ||  Session.validateSession(sessionId) == null){
+                return Response.status(403).entity("Session expired").build();
+            }
+
+            List<Artist> allArtists = Artist.retrieveAllArtists();
+
+            return Response.status(200).entity(allArtists).build();
 
         } catch (Exception e) {
             String s = "Failure";

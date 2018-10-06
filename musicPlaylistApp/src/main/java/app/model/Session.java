@@ -103,7 +103,6 @@ public class Session {
 
                     Integer userId = rs.getInt(1);
 
-                    MyLog.logMessage("Success validating Session: " + sessionId);
                     connection.closeConnection();
                     //return User Id
                     return userId;
