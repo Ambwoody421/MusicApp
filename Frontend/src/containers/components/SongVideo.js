@@ -49,7 +49,7 @@ class SongVideo extends React.Component {
     render() {
         return (
         <div>
-            <h6>Now Playing: {this.props.filename}</h6>
+            <h6>Now Playing: {this.props.displaySong}</h6>
             <audio id='audio' src={this.state.blob} autoPlay controls onEnded={this.props.songEnded} ></audio>
         </div>
         );

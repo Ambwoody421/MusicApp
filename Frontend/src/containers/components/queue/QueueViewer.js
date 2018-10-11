@@ -4,6 +4,7 @@ import QueuePlayer from './QueuePlayer'
 import QueueSongRow from './QueueSongRow'
 import Config from '../../../modules/config'
 import {status, json} from '../../../modules/functions'
+import ButtonWrapper from '../ButtonWrapper'
 
 class QueueViewer extends React.Component{
     constructor(props){
@@ -46,7 +47,7 @@ class QueueViewer extends React.Component{
                 .then((data) => {
                     var array = data.map(function(s) {
 
-                        var obj = {filename: s.filepath, songId: s.id};
+                        var obj = {filepath: s.filepath, songId: s.id, title: s.title};
 
                             return obj;
                         })
@@ -54,7 +55,7 @@ class QueueViewer extends React.Component{
                         return array;
 
                     }).then((arr) => {
-                        this.setState({allSongs: arr, currentSong: arr[0].filename});
+                        this.setState({allSongs: arr, currentSong: arr[0]});
                     })
                     .catch(error =>
                         alert(error.message));
@@ -95,25 +96,33 @@ class QueueViewer extends React.Component{
      var array = [];
      for (var i = 0; i < songsArray.length; i++) {
 
-        array.push(<QueueSongRow title={songsArray[i].filename} currentSong={this.state.currentSong} />);
+        array.push(<QueueSongRow key={i + ':groupQueue' + this.props.id} title={songsArray[i].title} currentSong={this.state.currentSong.title} />);
      }
 
         return (
             <div style={{backgroundColor: 'lightGray', borderRadius: '5px'}} className='row'>
+                <div className='offset-lg-1 col-lg-5'>
+                    <ButtonWrapper 
+                        divClass='row justify-content-center'
+                        class='btn btn-success' 
+                        name='showPlayer' 
+                        click={this.PlayerView}
+                        val={this.state.showPlayer === true ? 'Close' : 'Play Queue'} 
+                        />
+                    {this.state.showPlayer === true ? 
+                        <QueuePlayer 
+                            id={this.props.id} 
+                            divClass='row justify-content-center' 
+                            currentSong={this.state.currentSong} 
+                            songEnded={this.songEnded} 
+                            /> : null}
+                </div>
                 <div className='col-lg-6'>
-                    <div className='row'>
-                        <AddQueueSongPopup id={this.props.id} />
+                    <div className='row justify-content-center'>
+                        <AddQueueSongPopup id={this.props.id} refreshSongs={this.queueSongs} />
                     </div>
                     <div>
                         {array}
-                    </div>
-                </div>
-                <div className='offset-lg-1 col-lg-5'>
-                    <div className='row'>
-                        {this.state.showPlayer === true ? <button className='btn btn-success' name='showPlayer' onClick={this.PlayerView}>Close Queue</button> : <button className='btn btn-warning' name='showPlayer' onClick={this.PlayerView}>Play Queue</button>}
-                    </div>
-                    <div className='row'>
-                        {this.state.showPlayer === true ? <QueuePlayer id={this.props.id} currentSong={this.state.currentSong} songEnded={this.songEnded} /> : null}
                     </div>
                 </div>
             </div>

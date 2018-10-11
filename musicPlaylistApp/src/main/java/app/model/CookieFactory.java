@@ -12,7 +12,7 @@ public class CookieFactory {
         Cookie cookie = new Cookie("sessId",session.getSessionId(), "/", null);
         Calendar calendar = Calendar.getInstance();
 
-        NewCookie c = new NewCookie(cookie,"",1800,new Date(calendar.getTimeInMillis() + TimeUnit.MINUTES.toMillis(30)),false, false);
+        NewCookie c = new NewCookie(cookie,"",3600,new Date(calendar.getTimeInMillis() + TimeUnit.MINUTES.toMillis(60)),false, true);
         System.out.println("expires: " + c.getExpiry());
         return c;
     }

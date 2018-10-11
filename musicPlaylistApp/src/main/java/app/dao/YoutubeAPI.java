@@ -1,32 +1,26 @@
 package app.dao;
 
 import app.config.MyLog;
+import app.model.Song;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.nio.file.Paths;
 import java.util.Scanner;
+
 
 public class YoutubeAPI {
 
-
-    public static String getVideoTitle(String videoId){
+    public static String getVideoTitle(String videoId, String key){
 
         StringBuilder sb = new StringBuilder();
 
         try {
-            URL resource = YoutubeAPI.class.getResource("/Key.txt");
-            File file = Paths.get(resource.toURI()).toFile();
-            Scanner scan = new Scanner(file);
-            String key = scan.nextLine();
-            System.out.println(key);
-            String api = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id="+videoId+"&key="+key;
+            String api = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + videoId + "&key=" + key;
 
             URLConnection con = new URL(api).openConnection();
 
@@ -41,8 +35,6 @@ public class YoutubeAPI {
             }
         } catch (IOException e) {
             MyLog.logException(e);
-        } catch (URISyntaxException x) {
-            MyLog.logException(x);
         }
 
 
@@ -52,15 +44,27 @@ public class YoutubeAPI {
 
         JSONObject videoDetails = getVideo.getJSONObject("snippet");
 
-        String title = videoDetails.getString("title");
-
-
-        return title;
+        return videoDetails.getString("title");
 
     }
 
-    public static boolean downloadSong(String url) {
-        String download_path="C:\\Users\\Alex Bartsch\\Documents\\MusicAppSongs";
+    public static boolean downloadSong(Song song, String baseFilePath) {
+
+        String download_path = baseFilePath;
+
+        // if artist directory does not exist, make one
+        File directory = new File(download_path + "\\" + song.getArtist());
+        if(!directory.exists()){
+            if(!directory.mkdir()){
+                return false;
+            }
+        }
+
+        //check if song already exists
+        File newSong = new File(baseFilePath + "\\" + song.getFilepath());
+        if(newSong.exists()) {
+            return false;
+        }
 
         String[] command =
                 {
@@ -72,11 +76,19 @@ public class YoutubeAPI {
             new Thread(new SyncPipe(p.getErrorStream(), System.err)).start();
             new Thread(new SyncPipe(p.getInputStream(), System.out)).start();
             PrintWriter stdin = new PrintWriter(p.getOutputStream());
-            stdin.println("cd \""+download_path+"\"");
-            stdin.println("youtube-dl "+url);
+            stdin.println("cd \""+directory+"\"");
+            stdin.println("\"" + baseFilePath + "\"\\" + "youtube-dl.exe "+song.getUrl());
             stdin.close();
             p.waitFor();
-            MyLog.logMessage("Successfully downloaded song: " + url);
+
+            //check to see if song was in fact downloaded
+            if(!newSong.exists()){
+                MyLog.logMessage("Something went wrong. Could not download song.");
+                return false;
+            }
+
+            // if made it this far, song must have downloaded successfully
+            MyLog.logMessage("Successfully downloaded song: " + song.getUrl());
             return true;
         } catch (Exception e) {
             MyLog.logException(e);

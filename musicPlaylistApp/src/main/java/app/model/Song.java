@@ -4,10 +4,6 @@ import app.config.MyLog;
 import app.dao.DatabaseConnection;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,7 +21,7 @@ public class Song {
     public Song() {
     }
 
-    public Song(Integer id, String artist, String title, String filepath) {
+    public Song(Integer id, String title, String artist,  String filepath) {
         this.id = id;
         this.title = title;
         this.artist = artist;
@@ -151,7 +147,7 @@ public class Song {
 
         List<Song> songs = new ArrayList<>();
 
-        String sql = "Select id, artist, title, filepath from music_database.songs";
+        String sql = "Select id, title, artist, filepath from music_database.songs";
 
         try {
             PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
@@ -205,9 +201,9 @@ public class Song {
         return songs;
     }
 
-    public File retrieveSongAudio(){
+    public File retrieveSongAudio(String baseFilePath){
 
-        File file = new File("C:\\Users\\Alex Bartsch\\Documents\\MusicAppSongs\\" + this.getFilepath());
+        File file = new File(baseFilePath + "\\" + this.getFilepath());
 
         return file;
 

@@ -18,16 +18,33 @@ class NewSongForm extends React.Component{
         }
         this.handleChange = this.handleChange.bind(this);
         this.addNewSong = this.addNewSong.bind(this);
+        this.validateUrl = this.validateUrl.bind(this);
 
     }
     handleChange(e){
         this.setState({[e.target.id]: e.target.value});
     }
+    validateUrl(){
+        const reqUrl = this.state.url.trim();
+        const reqArtist = this.state.artist.trim();
 
-    addNewSong(){
+        if(reqUrl === '' || reqArtist === ''){
+            this.setState({outcomeMessage: 'Cannot leave fields blank.'});
+            return;
+        } else if (reqUrl.search(/https:\/\/(www.)?(m\.)?youtu\.?be(\.com)?\/(watch\?v=)?.+/g) === -1) {
+            this.setState({outcomeMessage: 'Url is not acceptable.'});
+            return;
+        }
+        
+        this.addNewSong(reqUrl, reqArtist);
+    }
+
+    addNewSong(reqUrl, reqArtist){
+        
+        
         this.setState({outcomeMessage: 'Loading...'});
         
-        var request = {url: this.state.url, artist: this.state.artist};
+        var request = {url: reqUrl, artist: reqArtist};
         
         console.log(request);
         
@@ -70,7 +87,7 @@ class NewSongForm extends React.Component{
                     errorText={this.state.formErrors.artistError} 
                     handleChange={this.handleChange} /> 
                 &nbsp;
-                <ButtonWrapper divClass='row justify-content-center' id='submit' val='Submit' click={this.addNewSong} class='btn btn-primary' />
+                <ButtonWrapper divClass='row justify-content-center' id='submit' val='Submit' click={this.validateUrl} class='btn btn-primary' />
                 {this.state.outcomeMessage}
             </div>
         );

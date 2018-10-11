@@ -8,7 +8,7 @@ class GroupCommands extends React.Component {
         for (var i = 0; i < array.length; i++) {
             const id = this.props.id + ":" + array[i];
 
-            elements.push(<input type='button' id={id} style={{margin: '5px'}} className={this.props.selected === id ? 'btn-danger btn-sm wrapText' : 'btn-primary btn-sm wrapText'} value={array[i]} onClick={this.props.handleClick} />);
+            elements.push(<input key={i + ':groupCommands' + this.props.id} type='button' id={id} style={{margin: '5px'}} className={this.props.selected === id ? 'btn-danger btn-sm wrapText' : 'btn-primary btn-sm wrapText'} value={array[i]} onClick={this.props.handleClick} />);
         }
     
         return (

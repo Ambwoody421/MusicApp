@@ -30,7 +30,7 @@ public class DatabaseConnection {
 		try {
             this.con = dataSource.getConnection();
             this.con.setAutoCommit(false);
-         
+
         } catch (SQLException s){
             s.printStackTrace();
         }
@@ -53,43 +53,6 @@ public class DatabaseConnection {
 		}
     	
     }
-    
-
-    
-    /*
-    public static boolean createNewUser(User user) {
-
-    	Connection con = DatabaseConnection.getConnection();
-
-    	String sql = "Insert into music_database.users (name, password) values (?,?)";
-
-    	try {
-			PreparedStatement preparedStatement = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-
-			preparedStatement.setString(1, user.getName());
-			preparedStatement.setString(2, user.getPassword());
-
-			preparedStatement.executeUpdate();
-
-			ResultSet rs = preparedStatement.getGeneratedKeys();
-
-            if (rs.next()) {
-                user.setId(rs.getInt(1));
-                con.close();
-                return true;
-            }
-
-
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-    	return false;
-
-    }
-    */
     
     
 }

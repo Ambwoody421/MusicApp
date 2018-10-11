@@ -4,6 +4,8 @@ import app.dao.YoutubeAPI;
 import app.model.Artist;
 import app.model.Session;
 import app.model.Song;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,7 +17,14 @@ import java.io.File;
 import java.util.List;
 
 @Path("song")
+@Controller
 public class SongController {
+
+    @Value("${apiKey}")
+    private String key;
+
+    @Value("${baseMusicFilepath}")
+    private String baseMusicFilepath;
 
     /**Adds new song in the database via a youtube video url and a custom artist field
      *
@@ -27,23 +36,27 @@ public class SongController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response addSong(Song song, @CookieParam("sessId") String sessionId){
 
-        System.out.println(song.getUrl());
-        System.out.println(song.getArtist());
-
         try {
             //check if cookie was sent
             if(sessionId == null ||  Session.validateSession(sessionId) == null){
                 return Response.status(403).entity("Session expired").build();
             }
 
-            String[] temp = song.getUrl().split("=");
+            // get video id from url
+            String[] temp;
+            if(song.getUrl().contains("=")){
+                temp = song.getUrl().split("=");
+            } else {
+                temp = song.getUrl().split("/");
+            }
             String videoId = temp[temp.length-1];
 
-            String title = YoutubeAPI.getVideoTitle(videoId);
-            song.setTitle(title);
-            song.setFilepath(title + "-" + videoId + ".mp4");
 
-            if(!YoutubeAPI.downloadSong(song.getUrl())) {
+            String title = YoutubeAPI.getVideoTitle(videoId, key);
+            song.setTitle(title);
+            song.setFilepath(song.getArtist() + "\\" + title + "-" + videoId + ".mp4");
+
+            if(!YoutubeAPI.downloadSong(song, baseMusicFilepath)) {
                 throw new Exception("Could not download new song");
             }
 
@@ -55,8 +68,7 @@ public class SongController {
             }
 
         } catch (Exception e) {
-            String s = "Failure";
-            return Response.status(400).entity(s).build();
+            return Response.status(400).entity(e.getMessage()).build();
         }
 
     }
@@ -105,10 +117,8 @@ public class SongController {
                 return Response.status(403).entity("Session expired").build();
             }
 
-            System.out.println(song.getFilepath());
 
-
-            File audioFile = song.retrieveSongAudio();
+            File audioFile = song.retrieveSongAudio(baseMusicFilepath);
 
             return Response.ok(audioFile, "application/octet-stream").build();
 

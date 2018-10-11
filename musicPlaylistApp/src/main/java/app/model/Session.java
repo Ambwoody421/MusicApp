@@ -95,23 +95,14 @@ public class Session {
 
             ResultSet rs = preparedStatement.executeQuery();
 
-            if(rs.next()){
+            if (rs.next()) {
 
-                //check if timestamp is 30 minutes old
-                long currentTime = System.currentTimeMillis() / 1000L;
-                if((currentTime - rs.getLong(2))/60 < 30){
+                Integer userId = rs.getInt(1);
 
-                    Integer userId = rs.getInt(1);
+                connection.closeConnection();
+                //return User Id
+                return userId;
 
-                    connection.closeConnection();
-                    //return User Id
-                    return userId;
-                }
-                else{
-                    MyLog.logMessage("Session: " + sessionId + " is expired.");
-                    connection.closeConnection();
-                    throw new Exception("Session: " + sessionId + " is expired.");
-                }
             }
 
 

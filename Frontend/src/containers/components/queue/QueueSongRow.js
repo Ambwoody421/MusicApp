@@ -4,19 +4,15 @@ class QueueSongRow extends React.Component{
     render() {
 
         const styleObj = {
-        backgroundColor: '#028ea3',
-        opacity: '0.7',
-        borderRadius: '5px',
-        color: '#050200',
-        fontFamily: 'Oswald',
+        borderRadius: '10px',
+        fontFamily: 'Georgia, serif',
+        fontSize: '5px',
         padding: '8px'
         };
 
-        if (this.props.currentSong === this.props.title) {
-            styleObj.backgroundColor = '#e65202';
-        }
+        
         return (
-            <div style={styleObj}>
+            <div style={styleObj} className={this.props.currentSong === this.props.title ? 'bg-light border border-info text-dark' : 'bg-secondary border border-info text-white'}>
                 <h5>{this.props.title}</h5>
             </div>
         );

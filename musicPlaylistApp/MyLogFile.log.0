@@ -9602,3 +9602,407 @@ Oct 05, 2018 9:48:39 PM app.config.MyLog logMessage
 INFO: Success validating Session: e05b2289-6f4c-45fc-a8f1-065c52d2cc89
 Oct 05, 2018 9:48:39 PM app.config.MyLog logMessage
 INFO: Gathered all groups owned by User: 28
+Oct 08, 2018 7:51:31 PM app.config.MyLog logMessage
+INFO: Success validating User: Tim
+Oct 08, 2018 7:51:31 PM app.config.MyLog logMessage
+INFO: Session: 271fdcdf-2a75-421c-a368-c33891d13f2d  created for user: 28
+Oct 08, 2018 7:52:14 PM app.config.MyLog logMessage
+INFO: Successfully downloaded song: https://www.youtube.com/watch?v=sn3Ct2_L4OA
+Oct 08, 2018 7:52:14 PM app.config.MyLog logMessage
+INFO: Success creating Song: Breaking Benjamin - Torn in Two (Official Video)
+Oct 08, 2018 7:56:48 PM app.config.MyLog logMessage
+INFO: Successfully downloaded song: https://www.youtube.com/watch?v=9XaS93WMRQQ
+Oct 08, 2018 7:56:48 PM app.config.MyLog logMessage
+INFO: Success creating Song: Bad Wolves - Zombie (Official Video)
+Oct 08, 2018 8:02:21 PM app.config.MyLog logMessage
+INFO: Successfully downloaded song: https://www.youtube.com/watch?v=sn3Ct2_L4OA
+Oct 08, 2018 8:02:21 PM app.config.MyLog logMessage
+INFO: Success creating Song: Breaking Benjamin - Torn in Two (Official Video)
+Oct 08, 2018 8:04:48 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 08, 2018 8:05:47 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 08, 2018 8:05:50 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 08, 2018 8:05:50 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 08, 2018 8:05:52 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 08, 2018 8:05:52 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 08, 2018 8:05:58 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 12
+Oct 08, 2018 8:06:02 PM app.config.MyLog logMessage
+INFO: Success adding Song: 26 to group queue 9
+Oct 08, 2018 8:06:05 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 08, 2018 8:06:05 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 08, 2018 8:10:11 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 08, 2018 8:28:49 PM app.config.MyLog logMessage
+INFO: Success validating User: Tim
+Oct 08, 2018 8:28:49 PM app.config.MyLog logMessage
+INFO: Session: 60c0cd6e-1bec-4863-8830-f84e146abbcf  created for user: 28
+Oct 08, 2018 8:29:11 PM app.config.MyLog logMessage
+INFO: Successfully downloaded song: https://youtu.be/QpbQ4I3Eidg
+Oct 08, 2018 8:29:11 PM app.config.MyLog logMessage
+INFO: Success creating Song: Machine Gun Kelly, Camila Cabello - Bad Things
+Oct 08, 2018 8:29:45 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 08, 2018 8:29:47 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 08, 2018 8:29:47 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 12
+Oct 08, 2018 8:29:54 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 14
+Oct 08, 2018 8:30:04 PM app.config.MyLog logMessage
+INFO: Success adding Song: 27 to group queue 12
+Oct 08, 2018 8:30:07 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 08, 2018 8:30:07 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 12
+Oct 08, 2018 8:31:14 PM app.config.MyLog logMessage
+INFO: Gathered all members in group: 9
+Oct 10, 2018 7:06:36 PM app.config.MyLog logMessage
+INFO: Success validating User: Tim
+Oct 10, 2018 7:06:36 PM app.config.MyLog logMessage
+INFO: Session: dcca8662-8d80-47c3-ad46-0916b5aa0f05  created for user: 28
+Oct 10, 2018 7:06:55 PM app.config.MyLog logMessage
+INFO: Something went wrong. Could not download song.
+Oct 10, 2018 7:13:00 PM app.config.MyLog logMessage
+INFO: Something went wrong. Could not download song.
+Oct 10, 2018 7:18:10 PM app.config.MyLog logMessage
+INFO: Successfully downloaded song: https://www.youtube.com/watch?v=QjdlPeWCd8g
+Oct 10, 2018 7:18:11 PM app.config.MyLog logMessage
+INFO: Success creating Song: Epiphany~ Staind
+Oct 10, 2018 7:41:52 PM app.config.MyLog logMessage
+INFO: Success validating User: Tim
+Oct 10, 2018 7:41:52 PM app.config.MyLog logMessage
+INFO: Session: 6a18a973-8472-45d8-ac6d-21247f49a93e  created for user: 28
+Oct 10, 2018 7:41:55 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 7:41:57 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 7:42:00 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 7:42:07 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 2
+Oct 10, 2018 7:46:28 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 7:46:33 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 7:46:35 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 7:46:39 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 14
+Oct 10, 2018 7:46:45 PM app.config.MyLog logMessage
+INFO: Success adding Song: 27 to group queue 3
+Oct 10, 2018 7:47:35 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 7:47:37 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 7:47:38 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 7:47:42 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 14
+Oct 10, 2018 7:49:34 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 7:50:17 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 7:50:31 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 7:50:37 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 7:50:49 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 2
+Oct 10, 2018 7:53:07 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 7:53:50 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 7:53:54 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 7:53:56 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 7:53:58 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 7:54:06 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 12
+Oct 10, 2018 7:54:12 PM app.config.MyLog logMessage
+INFO: Success adding Song: 26 to group queue 3
+Oct 10, 2018 7:57:14 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 7:57:18 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 7:57:20 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 7:57:27 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 6
+Oct 10, 2018 7:57:33 PM app.config.MyLog logMessage
+INFO: Success adding Song: 17 to group queue 3
+Oct 10, 2018 7:58:46 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 7:58:51 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 7:58:53 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 7:58:54 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 7:59:16 PM app.config.MyLog logMessage
+INFO: Success validating User: Tim
+Oct 10, 2018 7:59:16 PM app.config.MyLog logMessage
+INFO: Session: 84b9db4b-230f-427b-bc58-901fe351fbaf  created for user: 28
+Oct 10, 2018 7:59:19 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 7:59:21 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 7:59:24 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 7:59:34 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 8
+Oct 10, 2018 8:06:49 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:06:49 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:07:15 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:07:15 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:07:17 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:07:22 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 8:08:42 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:08:45 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:08:47 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:10:36 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:10:36 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:10:38 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:11:25 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:11:25 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:11:46 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:13:10 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:13:10 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:13:12 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:14:29 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:14:29 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:16:15 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:16:16 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:16:17 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:17:01 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:17:02 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:17:51 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:17:54 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:17:56 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:18:42 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:18:42 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:23:16 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:23:17 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:23:19 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:23:37 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:23:39 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:23:46 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:23:59 PM app.config.MyLog logMessage
+INFO: Success validating User: Tim
+Oct 10, 2018 8:23:59 PM app.config.MyLog logMessage
+INFO: Session: 8787c6c8-4035-4121-80bd-48428e269ee9  created for user: 28
+Oct 10, 2018 8:24:01 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:24:02 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:24:08 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:24:09 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:24:23 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 10, 2018 8:24:53 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:27:45 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:27:45 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:27:46 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:28:00 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:32:24 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:32:27 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:32:43 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:32:48 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:32:49 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:33:21 PM app.config.MyLog logMessage
+INFO: Success deleting Song: 11 from group queue 3
+Oct 10, 2018 8:33:21 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:33:51 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 8:34:54 PM app.config.MyLog logMessage
+INFO: Successfully downloaded song: https://youtu.be/rbxebxnXb-A
+Oct 10, 2018 8:34:54 PM app.config.MyLog logMessage
+INFO: Success creating Song: Spencer Sutherland - Fine (Official Video)
+Oct 10, 2018 8:34:58 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:35:00 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 10, 2018 8:35:03 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 12
+Oct 10, 2018 8:35:05 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 13
+Oct 10, 2018 8:35:41 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 8:35:46 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 15
+Oct 10, 2018 8:35:53 PM app.config.MyLog logMessage
+INFO: Success adding Song: 29 to group queue 13
+Oct 10, 2018 8:36:00 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 13
+Oct 10, 2018 8:36:50 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 8:36:58 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 11
+Oct 10, 2018 8:37:02 PM app.config.MyLog logMessage
+INFO: Success adding Song: 23 to group queue 13
+Oct 10, 2018 8:37:08 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 6
+Oct 10, 2018 8:37:10 PM app.config.MyLog logMessage
+INFO: Success adding Song: 23 to group queue 13
+Oct 10, 2018 8:37:17 PM app.config.MyLog logMessage
+INFO: Success adding Song: 23 to group queue 13
+Oct 10, 2018 8:37:26 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 13
+Oct 10, 2018 8:40:20 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:40:20 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:40:26 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:40:27 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 28
+Oct 10, 2018 8:40:28 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:40:30 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 8:40:33 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 5
+Oct 10, 2018 8:40:37 PM app.config.MyLog logMessage
+INFO: Success adding Song: 15 to group queue 3
+Oct 10, 2018 8:40:37 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 3
+Oct 10, 2018 8:40:53 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 12
+Oct 10, 2018 8:40:58 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 13
+Oct 10, 2018 8:41:02 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 10, 2018 8:41:11 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 8:41:23 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 15
+Oct 10, 2018 8:41:27 PM app.config.MyLog logMessage
+INFO: Success adding Song: 29 to group queue 9
+Oct 10, 2018 8:41:27 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 10, 2018 8:41:44 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 14
+Oct 10, 2018 8:41:48 PM app.config.MyLog logMessage
+INFO: Success adding Song: 27 to group queue 9
+Oct 10, 2018 8:41:48 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 10, 2018 8:41:59 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 8:42:06 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 10
+Oct 10, 2018 8:42:10 PM app.config.MyLog logMessage
+INFO: Success adding Song: 22 to group queue 9
+Oct 10, 2018 8:42:11 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 10, 2018 8:54:33 PM app.config.MyLog logMessage
+INFO: Success deleting Song: 26 from group queue 9
+Oct 10, 2018 8:54:33 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 10, 2018 8:58:29 PM app.config.MyLog logMessage
+INFO: Success deleting Song: 29 from group queue 9
+Oct 10, 2018 8:58:30 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 10, 2018 9:05:12 PM app.config.MyLog logMessage
+INFO: Success deleting Song: 27 from group queue 9
+Oct 10, 2018 9:05:12 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 10, 2018 9:05:54 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 9:06:01 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 1
+Oct 10, 2018 9:06:05 PM app.config.MyLog logMessage
+INFO: Success adding Song: 11 to group queue 9
+Oct 10, 2018 9:06:05 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 10, 2018 9:06:11 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 11
+Oct 10, 2018 9:06:14 PM app.config.MyLog logMessage
+INFO: Success adding Song: 23 to group queue 9
+Oct 10, 2018 9:06:15 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 10, 2018 9:09:41 PM app.config.MyLog logMessage
+INFO: Success deleting Song: 22 from group queue 9
+Oct 10, 2018 9:09:41 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 10, 2018 9:13:06 PM app.config.MyLog logMessage
+INFO: Success deleting Song: 11 from group queue 9
+Oct 10, 2018 9:13:06 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 10, 2018 9:14:03 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Oct 10, 2018 9:14:13 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 3
+Oct 10, 2018 9:14:16 PM app.config.MyLog logMessage
+INFO: Success adding Song: 13 to group queue 9
+Oct 10, 2018 9:14:17 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 10, 2018 9:14:22 PM app.config.MyLog logMessage
+INFO: Gathered all members in group: 3
+Oct 10, 2018 9:14:28 PM app.config.MyLog logMessage
+INFO: Gathered all playlists in group: 3
+Oct 10, 2018 9:16:56 PM app.config.MyLog logMessage
+INFO: Success deleting Song: 23 from group queue 9
+Oct 10, 2018 9:16:56 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9
+Oct 10, 2018 9:20:15 PM app.config.MyLog logMessage
+INFO: Success deleting Song: 13 from group queue 9
+Oct 10, 2018 9:20:16 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 9

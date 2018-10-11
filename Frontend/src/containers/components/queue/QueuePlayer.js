@@ -4,8 +4,8 @@ import SongVideo from '../SongVideo'
 class QueuePlayer extends React.Component{
     render() {
         return (
-            <div className='row'>
-                <SongVideo filename={this.props.currentSong} songEnded={this.props.songEnded} />
+            <div className={this.props.divClass}>
+                <SongVideo filename={this.props.currentSong.filepath} displaySong={this.props.currentSong.title} songEnded={this.props.songEnded} />
             </div>
             );
         }
