@@ -49,6 +49,43 @@ public class GroupController {
         }
     }
 
+    /** Create a new Group
+     * {id: required}
+     * */
+    @POST
+    @Path("/deleteGroup")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteGroup(Group group, @CookieParam("sessId") String sessionId) {
+
+        try {
+            //check if cookie was sent
+            if(sessionId == null){
+                return Response.status(403).entity("Session expired").build();
+            }
+
+            //validate session is still good in database. Retrieve user id
+            Integer userId = Session.validateSession(sessionId);
+
+            if(userId != null) {
+                //create group in db with user id as owner
+                if(group.deleteGroup()){
+                    return Response.status(200).entity("Group Deleted").build();
+                }
+                else{
+                    throw new Exception("Could not Delete Group");
+                }
+
+            }
+            else{
+                throw new Exception("Could not Delete Group");
+            }
+
+        } catch (Exception e) {
+            return Response.status(400).entity(e.getMessage()).build();
+        }
+    }
+
     /** Add member to group
      * {groupId: required, userId: required, userTypeId: required}
      * */

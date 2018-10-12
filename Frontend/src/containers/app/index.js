@@ -8,7 +8,7 @@ import MyNav from '../components/navigation/MyNav'
 class App extends React.Component {
 render() {
     return (
-        <div className='container'>
+        <div className='container' style={{marginBottom: '70px'}}>
             <main>
                 <div className='container'>
                     <Route exact path="/" component={Home} />

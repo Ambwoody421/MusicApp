@@ -92,6 +92,33 @@ public class Group {
 
     }
 
+    public boolean deleteGroup() throws Exception{
+        DatabaseConnection connection = new DatabaseConnection();
+        connection.setConnection();
+
+        String sql = "Delete From music_database.music_group where id = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+
+            preparedStatement.setInt(1, this.getId());
+
+            preparedStatement.executeUpdate();
+
+
+        } catch (SQLException e) {
+            MyLog.logException(e);
+            connection.getConnection().rollback();
+            connection.closeConnection();
+            throw new Exception(e);
+        }
+
+        MyLog.logMessage("Successfully deleted group: " + this.getId());
+        connection.getConnection().commit();
+        connection.closeConnection();
+        return true;
+    }
+
     public List<GroupMember> seeAllMembers() throws Exception{
         List<GroupMember> allUsers = new ArrayList<>();
 

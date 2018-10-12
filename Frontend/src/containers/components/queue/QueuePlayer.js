@@ -5,7 +5,12 @@ class QueuePlayer extends React.Component{
     render() {
         return (
             <div className={this.props.divClass}>
-                <SongVideo filename={this.props.currentSong.filepath} displaySong={this.props.currentSong.title} songEnded={this.props.songEnded} />
+            {typeof this.props.currentSong === 'undefined' ? null : 
+            <SongVideo 
+                filename={this.props.currentSong.filepath} 
+                displaySong={this.props.currentSong.title} 
+                songEnded={this.props.songEnded} 
+            />}
             </div>
             );
         }

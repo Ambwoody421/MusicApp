@@ -12,7 +12,8 @@ class QueueViewer extends React.Component{
     this.state = {
         showPlayer: false,
         currentSong: '',
-        allSongs: []
+        allSongs: [],
+        refreshTimerId: null
 
     }
 
@@ -45,17 +46,23 @@ class QueueViewer extends React.Component{
                 }).then(status)
                 .then(json)
                 .then((data) => {
-                    var array = data.map(function(s) {
-
-                        var obj = {filepath: s.filepath, songId: s.id, title: s.title};
-
-                            return obj;
-                        })
-
-                        return array;
+                    
+                        var array = data.map(function(s) {
+                            var obj = {filepath: s.filepath, songId: s.id, title: s.title};
+                                return obj;
+                            })
+                            return array;
 
                     }).then((arr) => {
-                        this.setState({allSongs: arr, currentSong: arr[0]});
+                        // check if queue is empty. If empty, refresh queue every 15 seconds.
+                        if(arr === null) {
+                            const refreshTimerId = setInterval(this.queueSongs, 15000);
+                            this.setState({allSongs: null, currentSong: null, refreshTimerId: refreshTimerId});
+                            // clear refresh if queue is full again.
+                        } else {
+                            clearInterval(this.state.refreshTimerId);
+                            this.setState({allSongs: arr, currentSong: arr[0], refreshTimerId: null});
+                        }
                     })
                     .catch(error =>
                         alert(error.message));

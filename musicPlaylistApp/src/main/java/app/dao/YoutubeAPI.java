@@ -77,7 +77,7 @@ public class YoutubeAPI {
             new Thread(new SyncPipe(p.getInputStream(), System.out)).start();
             PrintWriter stdin = new PrintWriter(p.getOutputStream());
             stdin.println("cd \""+directory+"\"");
-            stdin.println("\"" + baseFilePath + "\"\\" + "youtube-dl.exe "+song.getUrl());
+            stdin.println("\"" + baseFilePath + "\"\\" + "youtube-dl.exe --extract-audio --audio-format mp3 "+song.getUrl());
             stdin.close();
             p.waitFor();
 
