@@ -37,7 +37,7 @@ class DeleteGroupPopup extends React.Component{
     }
 
     openModal() {
-        this.setState({modalIsOpen: true});
+        this.setState({modalIsOpen: true, outcomeMessage: ''});
     }
 
     afterOpenModal() {

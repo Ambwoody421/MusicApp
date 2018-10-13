@@ -1,49 +1,36 @@
 import React from 'react'
 import ButtonWrapper from '../ButtonWrapper'
-import {status, text} from '../../../modules/functions'
-import Config from '../../../modules/config'
 
 class MemberRow extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            status: ''
-        }
-        this.removeMember = this.removeMember.bind(this);
-    }
-
-    removeMember() {
-
-        const obj = {groupId: this.props.groupId, userId: this.props.id};
-        const request = JSON.stringify(obj);
-
-         fetch('http://'+Config.ip+':8080/group/removeMember', {
-                                        method: 'POST',
-                                        credentials: 'include',
-                                        headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
-                                        body: request
-                                    }).then(status)
-                                        .then(text)
-                                        .then(() => {
-                                            this.setState({status: 'removed'});
-                                        })
-                                        .catch(error => {
-                                            alert(error.message);
-                                            this.setState({status: error.message})});
-    }
     render() {
+
+        const styleObj = {
+            borderRadius: '50px',
+            border: '7px double #000000',
+            fontFamily: 'Georgia, serif',
+            fontSize: '16px',
+            paddingLeft: '2px',
+            paddingRight: '2px',
+            paddingTop: '5px',
+            marginTop: '2px',
+            boxShadow: '5px 5px 10px 0px rgba(0,0,0,0.75)'
+
+        };
         return (
-        <div className='row groupMember'>
-            <div className='col-lg-4'>
-                <h5>{this.props.name}</h5>
+            <div style={styleObj} className='row bg-info text-white'>
+                <div className='col-xs-6'>
+                    <h5>{this.props.name}</h5>
+                </div>
+                {this.props.remove === true ?
+                    <ButtonWrapper 
+                        id={this.props.id} 
+                        divClass='offset-xs-2 col-xs-4'
+                        class='btn btn-danger' 
+                        click={this.props.removeAction} 
+                        val={this.props.val} /> : null}
             </div>
-            <div className='offset-lg-2 col-lg-4 offset-lg-4'>
-                <ButtonWrapper id={this.props.id} class='redBtn btn-primary' click={this.removeMember} val={this.props.val} />
-                {this.state.status}
-            </div>
-        </div>
         );
     }
-
 }
+
 export default MemberRow;

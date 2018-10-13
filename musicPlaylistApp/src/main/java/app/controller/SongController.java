@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.config.MyLog;
 import app.dao.YoutubeAPI;
 import app.model.Artist;
 import app.model.Session;
@@ -117,7 +118,7 @@ public class SongController {
                 return Response.status(403).entity("Session expired").build();
             }
 
-
+            MyLog.logMessage("Getting song audio: " + song.getFilepath());
             File audioFile = song.retrieveSongAudio(baseMusicFilepath);
 
             return Response.ok(audioFile, "application/octet-stream").build();

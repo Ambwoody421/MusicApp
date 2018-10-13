@@ -36,17 +36,17 @@ class CreateGroupPopup extends React.Component{
     handleChange(e) {
         this.setState({groupName: e.target.value});
     }
-    
+
     openModal() {
         this.setState({modalIsOpen: true});
     }
 
     afterOpenModal() {
-        
+
     }
 
     closeModal() {
-        this.setState({modalIsOpen: false});
+        this.setState({modalIsOpen: false, outcomeMessage: ''});
     }
 
     createGroup() {
@@ -55,26 +55,31 @@ class CreateGroupPopup extends React.Component{
         const request = JSON.stringify(obj);
 
         fetch('http://'+Config.ip+':8080/group/createGroup', {
-                                        method: 'POST',
-                                        credentials: 'include',
-                                        headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
-                                        body: request
-                                    }).then(status)
-                                        .then(json)
-                                        .then(() => {
-                                            this.setState({outcomeMessage: 'Success!'});
-                                            console.log("Success.");
-                                        })
-                                        .catch(error =>
-                                            this.setState({outcomeMessage: error.message}));
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+            body: request
+        }).then(status)
+            .then(json)
+            .then(() => {
+            this.setState({outcomeMessage: 'Success!'});
+            console.log("Success.");
+        })
+            .catch(error =>
+                   this.setState({outcomeMessage: error.message}));
     }
 
-     validateForm() {
+    validateForm() {
         let errorCount = 0;
         let errorText = '';
 
         if(this.state.groupName.length < 3){
             errorText = 'Name must be at least 3 characters long.';
+            errorCount++;
+        }
+
+        if(this.state.groupName.length > 20){
+            errorText = 'Name cannot exceed 20 characters.';
             errorCount++;
         }
 
@@ -88,7 +93,7 @@ class CreateGroupPopup extends React.Component{
     render() {
         return (
             <div>
-                <button className='btn-sm btn-success' style={{margin: '10px'}} onClick={this.openModal}>Create Group</button>
+            <button className='btn-sm btn-success' style={{margin: '10px'}} onClick={this.openModal}>Create Group</button>
             <Modal
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
@@ -97,22 +102,22 @@ class CreateGroupPopup extends React.Component{
             contentLabel="Create Group"
             >
             <h5>Create a Group</h5>
-                <InputWrapper 
-                    displayName='Group Name:' 
-                    type='text' 
-                    val={this.state.groupName} 
-                    handleChange={this.handleChange} 
-                    class='form-control' 
-                    errorText={this.state.errorText} />
-                <button 
-                    className='btn-sm btn-success' 
-                    onClick={this.validateForm}>
-                    Create Group
-                </button>
-                    {this.state.outcomeMessage}
-                </Modal>
+            <InputWrapper 
+            displayName='Group Name:' 
+            type='text' 
+            val={this.state.groupName} 
+            handleChange={this.handleChange} 
+            class='form-control' 
+            errorText={this.state.errorText} />
+            <button 
+            className='btn-sm btn-success' 
+            onClick={this.validateForm}>
+            Create Group
+            </button>
+            {this.state.outcomeMessage}
+            </Modal>
             </div>
-              
+
         );
     }
 }

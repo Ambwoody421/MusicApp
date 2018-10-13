@@ -19,7 +19,7 @@ class MyNav extends React.Component {
                         <NavLink className='nav-link' href="/" active={loc === '/'} style={style}>Home</NavLink>
                     </NavItem>
                     <NavItem >
-                        <NavLink className='nav-link' href="/ownerGroups" active={loc === '/ownerGroups'} style={style}>Groups</NavLink>
+                        <NavLink className='nav-link' href="/memberGroups" active={loc === '/memberGroups'} style={style}>Groups</NavLink>
                     </NavItem>
                     <NavItem >
                         <NavLink className='nav-link' href="/myGroups" active={loc === '/myGroups'} style={style}>My Groups</NavLink>

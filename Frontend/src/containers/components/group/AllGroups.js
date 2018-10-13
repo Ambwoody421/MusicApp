@@ -17,10 +17,10 @@ class AllGroups extends React.Component{
     }
 
     setUpGroups(){
-
+        const type = this.props.type;
         var groups = this.state.data.map(function(t) {
             return (
-                <GroupViewer id={t.id} name={t.name} key={t.id} />
+                <GroupViewer id={t.id} name={t.name} type={type} key={t.id} />
             );
         });
 
@@ -31,23 +31,44 @@ class AllGroups extends React.Component{
 
         this.refreshGroups();
 
-
     }
-    
+
     refreshGroups(){
-        fetch('http://'+Config.ip+':8080/user/getOwnedGroups', {
-            method: 'GET',
-            credentials: 'include',
-            headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}
-        }).then(status)
-            .then(json)
-            .then((d) => {
+        
+        //get member groups
+        if(this.props.type === 'member') {
+            fetch('http://'+Config.ip+':8080/user/getMemberGroups', {
+                method: 'GET',
+                credentials: 'include',
+                headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}
+            }).then(status)
+                .then(json)
+                .then((d) => {
 
-            this.setState({data: d});
+                this.setState({data: d});
 
-        })
-            .catch(error =>
-                   console.log(error.message));
+            })
+                .catch(error =>
+                       alert(error.message));
+            
+            // get owner groups if this is MyGroups tab
+        } else if (this.props.type === 'owner') {
+            fetch('http://'+Config.ip+':8080/user/getOwnedGroups', {
+                method: 'GET',
+                credentials: 'include',
+                headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}
+            }).then(status)
+                .then(json)
+                .then((d) => {
+
+                this.setState({data: d});
+
+            })
+                .catch(error =>
+                       alert(error.message));
+        }
+
+        
     }
 
     render() {
@@ -56,8 +77,8 @@ class AllGroups extends React.Component{
             <div>
                 <div>&nbsp;</div>
                 <div className='row'>
-                    <CreateGroupPopup />
-                    <DeleteGroupPopup data={this.state.data} refresh={this.refreshGroups} />
+                    {this.props.type === 'owner' ? <CreateGroupPopup /> : null}
+                    {this.props.type === 'owner' ? <DeleteGroupPopup data={this.state.data} refresh={this.refreshGroups} /> : null}
                 </div>
                 <div>&nbsp;</div>
                 <div className='col-xs-12'>

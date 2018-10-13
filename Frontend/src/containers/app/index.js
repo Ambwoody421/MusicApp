@@ -6,19 +6,18 @@ import AllGroups from '../components/group/AllGroups'
 import MyNav from '../components/navigation/MyNav'
 
 class App extends React.Component {
-render() {
-    return (
-        <div className='container' style={{marginBottom: '70px'}}>
-            <main>
-                <div className='container'>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/myGroups" component={AllGroups} />
-                    <Route exact path="/login" component={Login} />
-                </div>
-            </main>
-            
+    render() {
+        return (
+            <div className='container' style={{marginBottom: '70px'}}>
+                    <div className='col-xs-11'>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/memberGroups" render={() => <AllGroups type='member' />} />
+                        <Route exact path="/myGroups" render={() => <AllGroups type='owner' />} />
+                        <Route exact path="/login" component={Login} />
+                    </div>
+
                 <MyNav />
-        </div>
+            </div>
         );
     }
 }

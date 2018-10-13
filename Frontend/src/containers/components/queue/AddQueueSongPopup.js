@@ -47,20 +47,20 @@ class AddQueueSongPopup extends React.Component{
     }
 
     closeModal() {
-        this.setState({modalIsOpen: false});
+        this.setState({modalIsOpen: false, outcomeMessage: ''});
     }
 
-    
+
     handleChange(e) {
         if (e.target.id === 'selectedArtist') {
-            this.setState({[e.target.id]: e.target.value}, this.getAllSongs);
+            this.setState({[e.target.id]: e.target.value, outcomeMessage: ''}, this.getAllSongs);
         } else if(e.target.id === 'selectedSong') {
             const temp = document.querySelector('#selectedSong');
             const chosenSong = temp[temp.selectedIndex].id;
             console.log(chosenSong);
             this.setState({[e.target.id]: e.target.value, selectedSongName: chosenSong});
         }
-       
+
     }
 
     getAllArtist() {
@@ -87,7 +87,7 @@ class AddQueueSongPopup extends React.Component{
             .catch(error =>
                    alert(error.message));
     }
-    
+
     getAllSongs() {
         fetch('http://'+Config.ip+':8080/song/getAllSongsByArtist?artist=' + this.state.selectedArtist, {
             method: 'GET',
@@ -98,72 +98,77 @@ class AddQueueSongPopup extends React.Component{
             .then(function(data) {
 
             var array = data.map(function(s) {
-
-                return <option key={s.id + ':' + s.title} value={s.id} id={s.title}>{s.title}</option>;
+                let title = s.title;
+                if(title.length > 40){
+                    title = title.substr(0,37) + '...';
+                }
+                return <option key={s.id + ':' + title} value={s.id} id={title}>{title}</option>;
             });
 
 
             return array;
 
         }).then((arr) => {
-            
+
             arr.push(<option key={'blankSong'} value={''}>{''}</option>);
             this.setState({songData: arr});
         })
             .catch(error =>
                    alert(error.message));
     }
-    
+
     addSong() {
 
         var obj = {groupId: this.props.id, songId: this.state.selectedSong};
         const request = JSON.stringify(obj);
 
         fetch('http://'+Config.ip+':8080/queue/addSong', {
-                                        method: 'POST',
-                                        credentials: 'include',
-                                        headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
-                                        body: request
-                                    }).then(status)
-                                        .then(json)
-                                        .then(() => {
-                                            this.setState({outcomeMessage: 'Success adding song: ' + this.state.selectedSongName, selectedArtist: '', selectedSong: '', selectedSongName: ''}, this.props.refreshSongs);
-                                            console.log("Success.");
-                                        })
-                                        .catch(error =>
-                                            this.setState({outcomeMessage: error.message}));
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+            body: request
+        }).then(status)
+            .then(json)
+            .then(() => {
+            this.setState({outcomeMessage: 'Success adding song: ' + this.state.selectedSongName, selectedArtist: '', selectedSong: '', selectedSongName: ''}, this.props.refreshSongs);
+            console.log("Success.");
+        })
+            .catch(error =>
+                   this.setState({outcomeMessage: error.message}));
     }
 
     render() {
-    
+
         return (
             <div className='col-xs-8 bg-dark text-white'>
                 <button className='btn-sm btn-primary' onClick={this.openModal}>Add Song</button>
                 <Modal
-                isOpen={this.state.modalIsOpen}
-                onAfterOpen={this.afterOpenModal}
-                onRequestClose={this.closeModal}
-                style={customStyles}
-                contentLabel="Add Queue Song"
-                >
+                    isOpen={this.state.modalIsOpen}
+                    onAfterOpen={this.afterOpenModal}
+                    onRequestClose={this.closeModal}
+                    style={customStyles}
+                    contentLabel="Add Queue Song"
+                    >
                     <h5>Add a Song</h5>
                     <div className='row justify-content-center'>
                         Artist: <select 
-                                id='selectedArtist' 
-                                onChange={this.handleChange} 
-                                value={this.state.selectedArtist}>
-                                {this.state.artistData}
-                                </select>
+                                    id='selectedArtist' 
+                                    onChange={this.handleChange} 
+                                    value={this.state.selectedArtist}>
+                        {this.state.artistData}
+                        </select>
                     </div>
+                    <div>&nbsp;</div>
                     {this.state.selectedArtist === '' ? null : 
                         <div className='row justify-content-center'>
                         Song: <select 
-                                id='selectedSong' 
-                                onChange={this.handleChange} 
-                                value={this.state.selectedSong}>
-                                {this.state.songData}
-                            </select>
-                        </div>}
+                                  id='selectedSong' 
+                                  onChange={this.handleChange} 
+                                  value={this.state.selectedSong}>
+                        {this.state.songData}
+                        </select>
+                    </div>}
+                    <div>&nbsp;</div>
                     {this.state.selectedSong === '' ? null : 
                         <div className='row justify-content-center'>
                         <button 
@@ -171,7 +176,7 @@ class AddQueueSongPopup extends React.Component{
                             onClick={this.addSong}>
                             Add Song
                         </button>
-                        </div>}
+                    </div>}
                     <div className='row justify-content-center'>
                         {this.state.outcomeMessage}
                     </div>

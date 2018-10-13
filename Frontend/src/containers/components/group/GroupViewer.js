@@ -25,7 +25,7 @@ class GroupViewer extends React.Component{
 
 
     showView() {
-
+        const type = this.props.type;
         const temp = this.state.selected;
 
         var view = temp.split(":");
@@ -33,11 +33,11 @@ class GroupViewer extends React.Component{
         switch(view[1]){
 
         case 'ViewMembers':
-            return <MemberViewer id={this.props.id} />;
+            return <MemberViewer id={this.props.id} type={type} />;
         case 'Playlists':
-            return <PlaylistViewer id={this.props.id} />;
+            return <PlaylistViewer id={this.props.id} type={type} />;
         case 'Queue':
-            return <QueueViewer id={this.props.id} />;
+            return <QueueViewer id={this.props.id} type={type} />;
         default:
             break;
 

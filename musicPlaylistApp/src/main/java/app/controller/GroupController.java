@@ -187,8 +187,7 @@ public class GroupController {
             }
 
         } catch (Exception e) {
-            String s = "Failure";
-            return Response.status(400).entity(s).build();
+            return Response.status(400).entity(e.getMessage()).build();
         }
     }
 
