@@ -209,4 +209,31 @@ public class SongController {
         }
     }
 
+    /**Retrieve all Artists
+     *
+     *
+     */
+    @GET
+    @Path("/getArtistsByLetter")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response retrieveArtistsByLetter(@CookieParam("sessId") String sessionId, @QueryParam("letter") char c){
+
+        try {
+            //check if cookie was sent
+            if(sessionId == null ||  Session.validateSession(sessionId) == null){
+                return Response.status(403).entity("Session expired").build();
+            }
+
+            List<Artist> allArtists = Artist.retrieveArtistsByLetter(c);
+
+            return Response.status(200).entity(allArtists).build();
+
+        } catch (Exception e) {
+            String s = "Failure";
+            return Response.status(200).entity(s).build();
+        }
+    }
+
+
 }

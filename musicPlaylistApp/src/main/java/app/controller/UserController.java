@@ -15,7 +15,6 @@ import java.util.List;
 
 
 @Path("user")
-@Produces(MediaType.APPLICATION_JSON)
 public class UserController {
 
     //Creates a new user in the database
@@ -26,6 +25,7 @@ public class UserController {
     @POST
     @Path("/createUser")
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public Response createUser(User user) {
 
         try {
@@ -39,7 +39,7 @@ public class UserController {
 
                 NewCookie cookie = CookieFactory.getCookie(session);
 
-                return Response.ok().cookie(cookie).entity(user).build();
+                return Response.ok().cookie(cookie).entity("Success").build();
 
             }
             else{
@@ -48,8 +48,7 @@ public class UserController {
 
 
         } catch (Exception e) {
-            String s = "Failure";
-            return Response.status(400).entity(s).build();
+            return Response.status(200).entity(e.getMessage()).build();
         }
     }
 
@@ -62,6 +61,7 @@ public class UserController {
     @POST
     @Path("/validateUser")
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response validateUser(User user){
 
         try {
@@ -96,6 +96,7 @@ public class UserController {
     @GET
     @Path("/getOwnedGroups")
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response getOwnedGroups(@CookieParam("sessId") String sessionId) {
 
         try {
@@ -129,6 +130,7 @@ public class UserController {
     @GET
     @Path("/getMemberGroups")
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response getMemberGroups(@CookieParam("sessId") String sessionId){
 
         try {
@@ -161,6 +163,7 @@ public class UserController {
     @GET
     @Path("/seeAllUsers")
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response getAllUsers(@CookieParam("sessId") String sessionId){
 
         try {

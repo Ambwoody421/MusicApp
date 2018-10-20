@@ -3,6 +3,8 @@ package app.model;
 import app.config.MyLog;
 import app.dao.DatabaseConnection;
 
+import javax.sql.PooledConnection;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -31,58 +33,60 @@ public class PlaylistSong {
     }
 
     public boolean addSongDB() throws Exception{
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.setConnection();
+        Connection connection = DatabaseConnection.getConnection();
 
         String sql = "Insert into music_database.playlist_songs (playlistId, songId) values (?,?)";
 
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setInt(1, this.getPlaylistId());
             preparedStatement.setInt(2, this.getSongId());
 
             preparedStatement.executeUpdate();
 
+            MyLog.logMessage("Success creating adding Song: " + this.getSongId() + " to playlist " + this.getPlaylistId());
+            connection.commit();
+
+            return true;
 
         } catch (SQLException e) {
             MyLog.logException(e);
-            connection.closeConnection();
+            connection.rollback();
+            connection.close();
             throw new Exception(e);
+        } finally {
+            connection.close();
         }
-
-        MyLog.logMessage("Success creating adding Song: " + this.getSongId() + " to playlist " + this.getPlaylistId());
-        connection.getConnection().commit();
-        connection.closeConnection();
-        return true;
 
     }
 
     public boolean deleteSongDB() throws Exception{
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.setConnection();
+        Connection connection = DatabaseConnection.getConnection();
 
         String sql = "Delete music_database.playlist_songs where playlistId=? AND songId=?";
 
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setInt(1, this.getPlaylistId());
             preparedStatement.setInt(2, this.getSongId());
 
             preparedStatement.executeUpdate();
 
+            MyLog.logMessage("Success creating adding Song: " + this.getSongId() + " to playlist " + this.getPlaylistId());
+            connection.commit();
+
+            return true;
 
         } catch (SQLException e) {
             MyLog.logException(e);
-            connection.closeConnection();
+            connection.rollback();
+            connection.close();
             throw new Exception(e);
+        } finally {
+            connection.close();
         }
-
-        MyLog.logMessage("Success creating adding Song: " + this.getSongId() + " to playlist " + this.getPlaylistId());
-        connection.getConnection().commit();
-        connection.closeConnection();
-        return true;
 
     }
 }

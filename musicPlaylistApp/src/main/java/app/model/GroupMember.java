@@ -3,10 +3,8 @@ package app.model;
 import app.config.MyLog;
 import app.dao.DatabaseConnection;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javax.sql.PooledConnection;
+import java.sql.*;
 
 public class GroupMember implements Comparable<GroupMember> {
 
@@ -64,13 +62,12 @@ public class GroupMember implements Comparable<GroupMember> {
     }
 
     public boolean addGroupMember() throws Exception{
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.setConnection();
+        Connection connection = DatabaseConnection.getConnection();
 
         String sql = "Insert into music_database.users_in_group (group_id, user_id, user_type_id) values (?,?,?)";
 
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setInt(1, this.getGroupId());
             preparedStatement.setInt(2, this.getUserId());
@@ -78,52 +75,57 @@ public class GroupMember implements Comparable<GroupMember> {
 
             preparedStatement.executeUpdate();
 
+            MyLog.logMessage("Success Adding: " + this.getUserId() + " to the group: " + this.getGroupId());
+            connection.commit();
+
+            return true;
 
         } catch (SQLException e) {
             MyLog.logException(e);
-            connection.closeConnection();
+            connection.rollback();
+            connection.close();
             throw new Exception(e);
+        } finally {
+            connection.close();
         }
 
-        MyLog.logMessage("Success Adding: " + this.getUserId() + " to the group: " + this.getGroupId());
-        connection.getConnection().commit();
-        connection.getConnection().close();
-        return true;
     }
 
     public boolean removeGroupMember() throws Exception{
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.setConnection();
+        Connection connection = DatabaseConnection.getConnection();
 
         String sql = "Delete from music_database.users_in_group where group_id = ? AND user_id = ?;";
 
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setInt(1, this.getGroupId());
             preparedStatement.setInt(2, this.getUserId());
 
             preparedStatement.executeUpdate();
 
+            MyLog.logMessage("Success Removing: " + this.getUserId() + " from the group: " + this.getGroupId());
+            connection.commit();
+
+            return true;
 
         } catch (SQLException e) {
             MyLog.logException(e);
-            connection.closeConnection();
+            connection.rollback();
+            connection.close();
             throw new Exception(e);
+        } finally {
+            connection.close();
         }
 
-        MyLog.logMessage("Success Removing: " + this.getUserId() + " from the group: " + this.getGroupId());
-        connection.getConnection().commit();
-        connection.getConnection().close();
-        return true;
     }
 
-    public boolean addGroupOwner(DatabaseConnection connection) throws Exception{
+    public boolean addGroupOwner(Connection connection) throws Exception{
 
         String sql = "Insert into music_database.users_in_group (group_id, user_id, user_type_id) values (?,?,?)";
 
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setInt(1, this.getGroupId());
             preparedStatement.setInt(2, this.getUserId());
@@ -134,7 +136,8 @@ public class GroupMember implements Comparable<GroupMember> {
 
         } catch (SQLException e) {
             MyLog.logException(e);
-            connection.closeConnection();
+            connection.rollback();
+            connection.close();
             throw new Exception(e);
         }
 

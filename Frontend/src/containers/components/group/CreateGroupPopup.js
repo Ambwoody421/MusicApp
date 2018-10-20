@@ -62,7 +62,7 @@ class CreateGroupPopup extends React.Component{
         }).then(status)
             .then(json)
             .then(() => {
-            this.setState({outcomeMessage: 'Success!'});
+            this.setState({outcomeMessage: 'Success!'}, this.props.refresh);
             console.log("Success.");
         })
             .catch(error =>

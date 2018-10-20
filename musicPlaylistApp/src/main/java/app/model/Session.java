@@ -3,10 +3,8 @@ package app.model;
 import app.config.MyLog;
 import app.dao.DatabaseConnection;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javax.sql.PooledConnection;
+import java.sql.*;
 import java.util.Date;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -53,14 +51,13 @@ public class Session {
     }
 
     public boolean createNewSession() throws Exception{
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.setConnection();
+        Connection connection = DatabaseConnection.getConnection();
 
 
         String sql = "Insert into music_database.user_session (session_id, user_id, unixTimestamp) values (?,?,?)";
 
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, this.sessionId);
             preparedStatement.setInt(2, this.userId);
@@ -68,28 +65,31 @@ public class Session {
 
             preparedStatement.executeUpdate();
 
+            MyLog.logMessage("Session: " + this.getSessionId() + "  created for user: " + this.getUserId());
+            connection.commit();
+
+            return true;
 
         } catch (SQLException e) {
             MyLog.logException(e);
-            connection.closeConnection();
+            connection.rollback();
+            connection.close();
             return false;
+        } finally {
+            connection.close();
         }
 
-        MyLog.logMessage("Session: " + this.getSessionId() + "  created for user: " + this.getUserId());
-        connection.getConnection().commit();
-        connection.closeConnection();
-        return true;
+
     }
 
     public static Integer validateSession(String sessionId) throws Exception{
 
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.setConnection();
+        Connection connection = DatabaseConnection.getConnection();
 
         String sql = "Select user_id, unixTimestamp from music_database.user_session where session_id = ?";
 
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, sessionId);
 
@@ -99,22 +99,24 @@ public class Session {
 
                 Integer userId = rs.getInt(1);
 
-                connection.closeConnection();
+
                 //return User Id
                 return userId;
 
             }
 
+            return null;
+
 
         } catch (SQLException e) {
             MyLog.logException(e);
-            connection.closeConnection();
+            MyLog.logMessage("Failed validating a Session: " + sessionId);
+            connection.close();
             return null;
+        } finally {
+            connection.close();
         }
 
-        MyLog.logMessage("Failed validating a Session: " + sessionId);
-        connection.closeConnection();
-        throw new Exception("Failed validating a Session: " + sessionId);
     }
 
 }

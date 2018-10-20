@@ -3,11 +3,9 @@ package app.model;
 import app.config.MyLog;
 import app.dao.DatabaseConnection;
 
+import javax.sql.PooledConnection;
 import java.io.Serializable;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -56,13 +54,12 @@ public class User {
     }
 
     public boolean insertNewUser() throws Exception{
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.setConnection();
+        Connection connection = DatabaseConnection.getConnection();
 
         String sql = "Insert into music_database.users (name, password) values (?,?)";
 
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             preparedStatement.setString(1, this.getName());
             preparedStatement.setString(2, this.getPassword());
@@ -76,26 +73,29 @@ public class User {
                 this.setPassword(null);
             }
 
+            MyLog.logMessage("Success creating User: " + this.getName());
+            connection.commit();
+            return true;
+
         } catch (SQLException e) {
             MyLog.logException(e);
-            connection.closeConnection();
+            connection.rollback();
+            connection.close();
             return false;
+        } finally {
+            connection.close();
         }
 
-        MyLog.logMessage("Success creating User: " + this.getName());
-        connection.getConnection().commit();
-        connection.closeConnection();
-        return true;
+
     }
 
     public boolean validateUser() throws Exception{
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.setConnection();
+        Connection connection = DatabaseConnection.getConnection();
 
         String sql = "Select id, name, password from music_database.users where name = ? AND password = ?";
 
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, this.getName());
             preparedStatement.setString(2, this.getPassword());
@@ -112,7 +112,7 @@ public class User {
                     MyLog.logMessage("Success validating User: " + this.getName());
                     this.setId(id);
                     this.setPassword(null);
-                    connection.closeConnection();
+                    connection.close();
                     return true;
                 }
             }
@@ -120,12 +120,12 @@ public class User {
 
         } catch (SQLException e) {
             MyLog.logException(e);
-            connection.closeConnection();
+            connection.close();
             return false;
         }
 
         MyLog.logMessage("Failed validating a User: " + this.getName());
-        connection.closeConnection();
+        connection.close();
         throw new Exception("Failed validating a User: " + this.getName());
     }
 
@@ -133,13 +133,12 @@ public class User {
 
         List<User> users = new ArrayList<>();
 
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.setConnection();
+        Connection connection = DatabaseConnection.getConnection();
 
         String sql = "Select id, name from music_database.users";
 
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
 
             ResultSet rs = preparedStatement.executeQuery();
@@ -155,24 +154,23 @@ public class User {
         } catch (SQLException e) {
             MyLog.logMessage("Failed getting all users");
             MyLog.logException(e);
-            connection.closeConnection();
+            connection.close();
             return users;
         }
 
-        connection.closeConnection();
+        connection.close();
         return users;
     }
 
     public List<Group> seeOwnedGroups() throws Exception{
         List<Group> allGroups = new ArrayList<>();
 
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.setConnection();
+        Connection connection = DatabaseConnection.getConnection();
 
         String sql = "Select a.id, a.name from music_database.music_group a join music_database.users_in_group b on a.id = b.group_id join music_database.user_type_reference c on b.user_type_id=c.id where b.user_id = ? AND c.user_type = ?";
 
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setInt(1, this.getId());
             preparedStatement.setString(2, "OWNER");
@@ -190,25 +188,24 @@ public class User {
 
         } catch (SQLException e) {
             MyLog.logException(e);
-            connection.closeConnection();
+            connection.close();
             throw new Exception(e);
         }
 
         MyLog.logMessage("Gathered all groups owned by User: " + this.getId());
-        connection.closeConnection();
+        connection.close();
         return allGroups;
     }
 
     public List<Group> seeMemberGroups() throws Exception{
         List<Group> allGroups = new ArrayList<>();
 
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.setConnection();
+        Connection connection = DatabaseConnection.getConnection();
 
         String sql = "Select a.id, a.name from music_database.music_group a join music_database.users_in_group b on a.id = b.group_id join music_database.user_type_reference c on b.user_type_id=c.id where b.user_id = ? AND c.user_type = ?";
 
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setInt(1, this.getId());
             preparedStatement.setString(2, "MEMBER");
@@ -226,12 +223,12 @@ public class User {
 
         } catch (SQLException e) {
             MyLog.logException(e);
-            connection.closeConnection();
+            connection.close();
             throw new Exception(e);
         }
 
         MyLog.logMessage("Gathered all groups owned by User: " + this.getId());
-        connection.closeConnection();
+        connection.close();
         return allGroups;
     }
 }

@@ -3,7 +3,9 @@ package app.model;
 import app.config.MyLog;
 import app.dao.DatabaseConnection;
 
+import javax.sql.PooledConnection;
 import java.io.File;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -78,20 +80,19 @@ public class Song {
     }
 
     public boolean insertNewSong() throws Exception{
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.setConnection();
+        Connection connection = DatabaseConnection.getConnection();
 
         String sql = "Insert into music_database.songs (artist, title, filepath) values ((Select id From music_database.artists Where artist=?), ?, ?);";
         String sqlArtist = "INSERT INTO music_database.artists (artist) SELECT * FROM (SELECT ?) AS tmp WHERE NOT EXISTS (SELECT artist FROM music_database.artists WHERE artist = ?) LIMIT 1";
         try {
             // insert Artist if they are new
-            PreparedStatement preparedStatementArtist = connection.getConnection().prepareStatement(sqlArtist);
+            PreparedStatement preparedStatementArtist = connection.prepareStatement(sqlArtist);
             preparedStatementArtist.setString(1, this.getArtist());
             preparedStatementArtist.setString(2, this.getArtist());
             preparedStatementArtist.executeUpdate();
 
             // insert new song
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, this.getArtist());
             preparedStatement.setString(2, this.getTitle());
@@ -101,25 +102,24 @@ public class Song {
 
         } catch (SQLException e) {
             MyLog.logException(e);
-            connection.getConnection().rollback();
-            connection.closeConnection();
+            connection.rollback();
+            connection.close();
             throw new Exception(e);
         }
 
         MyLog.logMessage("Success creating Song: " + this.getTitle());
-        connection.getConnection().commit();
-        connection.closeConnection();
+        connection.commit();
+        connection.close();
         return true;
     }
 
     public boolean retrieveSongByTitle() throws Exception{
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.setConnection();
+        Connection connection = DatabaseConnection.getConnection();
 
         String sql = "Select filepath from music_database.songs where title = ?";
 
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, this.getTitle());
 
@@ -132,25 +132,24 @@ public class Song {
 
         } catch (SQLException e) {
             MyLog.logException(e);
-            connection.closeConnection();
+            connection.close();
             throw new Exception(e);
         }
 
         MyLog.logMessage("Retrieved song: " + this.getTitle());
-        connection.closeConnection();
+        connection.close();
         return true;
     }
 
     public static List<Song> retrieveAllSongs() throws Exception{
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.setConnection();
+        Connection connection = DatabaseConnection.getConnection();
 
         List<Song> songs = new ArrayList<>();
 
         String sql = "Select id, title, artist, filepath from music_database.songs";
 
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -161,25 +160,24 @@ public class Song {
 
         } catch (SQLException e) {
             MyLog.logException(e);
-            connection.closeConnection();
+            connection.close();
             throw new Exception(e);
         }
 
         MyLog.logMessage("Retrieved All songs");
-        connection.closeConnection();
+        connection.close();
         return songs;
     }
 
     public static List<Song> retrieveSongsByArtist(Integer artist) throws Exception{
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.setConnection();
+        Connection connection = DatabaseConnection.getConnection();
 
         List<Song> songs = new ArrayList<>();
 
         String sql = "Select id, title, filepath from music_database.songs Where artist = ?";
 
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setInt(1,artist);
 
@@ -192,12 +190,12 @@ public class Song {
 
         } catch (SQLException e) {
             MyLog.logException(e);
-            connection.closeConnection();
+            connection.close();
             throw new Exception(e);
         }
 
         MyLog.logMessage("Retrieved All songs for artist: " + artist);
-        connection.closeConnection();
+        connection.close();
         return songs;
     }
 

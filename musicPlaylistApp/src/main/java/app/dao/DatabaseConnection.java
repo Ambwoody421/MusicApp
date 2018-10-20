@@ -1,57 +1,54 @@
 package app.dao;
 
-import com.mysql.cj.jdbc.MysqlDataSource;
-
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import javax.annotation.PostConstruct;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.logging.Level;
 
+
+@Component
 public class DatabaseConnection {
 
-	//private static String user ="root";
-   // private static String password ="toor";
-   // private static String server ="localhost";
-    private Connection con;
+    @Value("${db.user}")
+	private String user ="root";
+    @Value("${db.pass}")
+    private String password ="toor";
+    @Value("${db.server}")
+    private String server ="localhost";
+    private static BasicDataSource dataSource;
 
+    public DatabaseConnection() {
+    }
 
+    @PostConstruct
     public void setConnection() {
-
-        MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUser("root");
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setUsername("root");
         dataSource.setPassword("toor");
-        dataSource.setServerName("localhost");
-		try {
-			dataSource.setUseSSL(false);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+        dataSource.setUrl("jdbc:mysql://localhost:3306/");
+        dataSource.setInitialSize(3);
+        dataSource.setMinIdle(3);
+        dataSource.setDefaultAutoCommit(false);
 
-		try {
-            this.con = dataSource.getConnection();
-            this.con.setAutoCommit(false);
+		this.dataSource = dataSource;
+
+
+    }
+    
+    public static Connection getConnection() {
+
+        Connection con = null;
+
+        try {
+            con = dataSource.getConnection();
 
         } catch (SQLException s){
             s.printStackTrace();
         }
 
-
-    }
-    
-    public Connection getConnection() {
-    	
-    	return this.con;
-    }
-    
-    public void closeConnection() {
-    	
-    	try {
-			this.con.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			//MyLog.logger.log(Level.SEVERE, e.getMessage(), e);
-		}
-    	
+    	return con;
     }
     
     

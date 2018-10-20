@@ -10,6 +10,8 @@ class NewSongForm extends React.Component{
         this.state = {
             url: '',
             artist: '',
+            queryArtistFlag: true,
+            artistChoices: [],
             outcomeMessage: '',
             formErrors: {
                 urlError: '',
@@ -19,10 +21,43 @@ class NewSongForm extends React.Component{
         this.handleChange = this.handleChange.bind(this);
         this.addNewSong = this.addNewSong.bind(this);
         this.validateUrl = this.validateUrl.bind(this);
+        this.handleArtistChange = this.handleArtistChange.bind(this);
+        this.selectArtist = this.selectArtist.bind(this);
 
     }
     handleChange(e){
+    
         this.setState({[e.target.id]: e.target.value});
+    }
+    selectArtist(name){
+        this.setState({artist: name, artistChoices: []});
+    }
+    handleArtistChange(e){
+        
+        if(e.target.value.length === 1 && this.state.queryArtistFlag === true) {
+            this.setState({[e.target.id]: e.target.value}, this.getArtistChoices);
+        } else if(e.target.value.length > 1) {
+            this.setState({[e.target.id]: e.target.value, queryArtistFlag: false});
+        } else if(e.target.value.length === 0) {
+            this.setState({[e.target.id]: e.target.value, queryArtistFlag: true, artistChoices: []});
+        } else {
+            this.setState({[e.target.id]: e.target.value});
+        }
+    }
+    getArtistChoices() {
+        fetch('http://'+Config.ip+':8080/song/getArtistsByLetter?letter=' + this.state.artist, {
+            method: 'GET',
+            credentials: 'include',
+            headers: {'Accept': 'application/json'}
+        }).then(status)
+            .then(json)
+            .then((d) => {
+            
+            this.setState({artistChoices: d});
+
+        })
+            .catch(error =>
+                   this.setState({outcomeMessage: error.message}));
     }
     validateUrl(){
         const reqUrl = this.state.url.trim();
@@ -57,7 +92,7 @@ class NewSongForm extends React.Component{
             .then(json)
             .then((d) => {
             var message = 'Song ' + d.title + ' was successfully created.'
-            this.setState({outcomeMessage: message});
+            this.setState({outcomeMessage: message, url: '', artist: '', artistChoices: []});
 
         })
             .catch(error =>
@@ -65,6 +100,20 @@ class NewSongForm extends React.Component{
     }
 
     render() {
+        let foundCount = 0;
+        const arr = this.state.artistChoices.map((s, index) => {
+        
+            const regExp = new RegExp(this.state.artist, 'i');
+            
+            if(s.name.search(regExp) !== -1 && foundCount < 3){
+                
+                foundCount++;
+                return (<input type='button' className='btn-sm btn-info' key={index} value={s.name} id='artist' onClick={() => this.selectArtist(s.name)} />);
+            } else {
+                return null;
+            }
+        });
+    
         return (
             <div className='offset-lg-2 col-lg-8 jumbotron'>
                 <h2>Add a New Song</h2>
@@ -85,7 +134,8 @@ class NewSongForm extends React.Component{
                     class='form-control' 
                     val={this.state.artist} 
                     errorText={this.state.formErrors.artistError} 
-                    handleChange={this.handleChange} /> 
+                    handleChange={this.handleArtistChange} /> 
+                {arr}
                 &nbsp;
                 <ButtonWrapper divClass='row justify-content-center' id='submit' val='Submit' click={this.validateUrl} class='btn btn-primary' />
                 {this.state.outcomeMessage}

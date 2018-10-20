@@ -2,7 +2,6 @@ import React from 'react'
 import {status, text, json} from '../../../modules/functions'
 import Config from '../../../modules/config'
 import MemberRow from './MemberRow'
-import OwnerRow from './OwnerRow'
 import AddMemberPopup from './AddMemberPopup'
 
 class MemberViewer extends React.Component{
@@ -32,8 +31,7 @@ class MemberViewer extends React.Component{
             .then((data) =>  {
             var array = data.map((s) => {
 
-                const type = s.userTypeId;
-                return (type === 2 ? <MemberRow key={s.userId + ':' + s.userName} id={s.userId} groupId={obj.id} name={s.userName} removeAction={this.removeMember} remove={checkType === 'owner'} type={s.userTypeId} val='Remove' /> : <OwnerRow key={s.userId + ':' + s.userName} id={s.userId} name={s.userName} type={s.userTypeId} />);
+                return <MemberRow key={s.userId + ':' + s.userName} id={s.userId} groupId={obj.id} name={s.userName} removeAction={this.removeMember} remove={checkType === 'owner'} type={s.userTypeId} val='Remove' />;
 
 
             });
@@ -76,6 +74,7 @@ class MemberViewer extends React.Component{
         return (
             <div className='bg-dark text-white'>
                 {this.state.d}
+                &nbsp;
                 {this.props.type === 'owner' ? <AddMemberPopup id={this.props.id} refreshMembers={this.getMembers} /> : null}
             </div>
         );

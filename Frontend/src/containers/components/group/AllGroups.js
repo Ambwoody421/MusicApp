@@ -77,7 +77,7 @@ class AllGroups extends React.Component{
             <div>
                 <div>&nbsp;</div>
                 <div className='row'>
-                    {this.props.type === 'owner' ? <CreateGroupPopup /> : null}
+                    {this.props.type === 'owner' ? <CreateGroupPopup refresh={this.refreshGroups} /> : null}
                     {this.props.type === 'owner' ? <DeleteGroupPopup data={this.state.data} refresh={this.refreshGroups} /> : null}
                 </div>
                 <div>&nbsp;</div>

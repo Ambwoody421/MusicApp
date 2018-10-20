@@ -6,54 +6,59 @@ import {status, json} from '../../../modules/functions'
 
 class PlaylistViewer extends React.Component{
     constructor(props){
-    super(props);
-    this.state = {
-        d: []
+        super(props);
+        this.state = {
+            d: []
+        }
+        this.getPlaylists = this.getPlaylists.bind(this);
     }
-}
     componentDidMount(){
 
-            let obj = {id: this.props.id};
+       this.getPlaylists();
+    }
 
-                    const request = JSON.stringify(obj);
+    getPlaylists() {
+        let obj = {id: this.props.id};
 
-
-                    fetch('http://'+Config.ip+':8080/group/getAllPlaylists', {
-                                    method: 'POST',
-                                    credentials: 'include',
-                                    headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
-                                    body: request
-                                }).then(status)
-                                    .then(json)
-                                    .then(function(data) {
-
-                                        var array = data.map(function(s) {
-
-                                                    return <PlaylistRow playlistId={s.id} name={s.name} addSong='Add Song' play='Play' />
-                                                });
+        const request = JSON.stringify(obj);
 
 
-                                        return array;
+        fetch('http://'+Config.ip+':8080/group/getAllPlaylists', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+            body: request
+        }).then(status)
+            .then(json)
+            .then(function(data) {
 
-                                    }).then((arr) => {
-                                        this.setState({d: arr});
-                                    })
-                                    .catch(error =>
-                                    alert(error.message));
+            var array = data.map(function(s) {
 
-        }
+                return <PlaylistRow playlistId={s.id} name={s.name} addSong='Add Song' play='Play' />
+            });
+
+
+            return array;
+
+        }).then((arr) => {
+            this.setState({d: arr});
+        })
+            .catch(error =>
+                   alert(error.message));
+    }
+    
     render() {
         return (
             <div>
                 <br />
-                <CreatePlaylistPopup groupId={this.props.id} />
+                <CreatePlaylistPopup groupId={this.props.id} refresh={this.getPlaylists} />
                 <div className='row'><span>&nbsp;</span></div>
                 <div>
                     {this.state.d}
                 </div>
             </div>
-            );
-        }
+        );
+    }
 
 }
 export default PlaylistViewer;

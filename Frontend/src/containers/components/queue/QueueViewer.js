@@ -12,7 +12,7 @@ class QueueViewer extends React.Component{
         this.state = {
             showPlayer: false,
             currentSong: '',
-            allSongs: [],
+            allSongs: null,
             refreshTimerId: null
 
         }
@@ -23,8 +23,17 @@ class QueueViewer extends React.Component{
         this.songEnded = this.songEnded.bind(this);
 
     }
+    
     PlayerView() {
-        this.setState({showPlayer: !this.state.showPlayer});
+        
+        if(!this.state.showPlayer === true){
+            this.setState({showPlayer: !this.state.showPlayer}, this.queueSongs);
+        } else if(!this.state.showPlayer === false){
+            console.log('clearing refresh');
+            clearInterval(this.state.refreshTimerId);
+            this.setState({showPlayer: !this.state.showPlayer, refreshTimerId: null});
+        }
+        
     }
 
     songEnded() {
@@ -54,14 +63,23 @@ class QueueViewer extends React.Component{
             return array;
 
         }).then((arr) => {
-            // check if queue is empty. If empty, refresh queue every 15 seconds.
-            if(arr === null) {
-                const refreshTimerId = setInterval(this.queueSongs, 15000);
-                this.setState({allSongs: null, currentSong: null, refreshTimerId: refreshTimerId});
-                // clear refresh if queue is full again.
-            } else {
+            
+            if(arr.length !== 0) {
+                
+                console.log('clearing interval');
                 clearInterval(this.state.refreshTimerId);
                 this.setState({allSongs: arr, currentSong: arr[0], refreshTimerId: null});
+                
+            } else {
+            
+                if(this.state.showPlayer === true && this.state.refreshTimerId === null){
+                    console.log('setting refresh');
+                    const refreshTimerId = setInterval(this.queueSongs, 10000);
+                    this.setState({allSongs: null, currentSong: null, refreshTimerId: refreshTimerId});
+                } else{
+                    this.setState({allSongs: null, currentSong: null});
+                }
+                
             }
         })
             .catch(error =>
@@ -98,14 +116,26 @@ class QueueViewer extends React.Component{
     }
 
     render() {
-
-        var songsArray = this.state.allSongs;
         var array = [];
-        for (var i = 0; i < songsArray.length; i++) {
 
-            array.push(<QueueSongRow key={i + ':groupQueue' + this.props.id} title={songsArray[i].title} currentSong={this.state.currentSong.title} />);
+        if(this.state.allSongs !== null){
+            var songsArray = this.state.allSongs;
+            for (var i = 0; i < songsArray.length; i++) {
+
+                array.push(<QueueSongRow key={i + ':groupQueue' + this.props.id} title={songsArray[i].title} currentSong={this.state.currentSong.title} />);
+            }
         }
-
+        
+        let player = null;
+        if(this.state.showPlayer === true && this.state.allSongs !== null){
+            player = <QueuePlayer 
+                         id={this.props.id} 
+                         divClass='row justify-content-center' 
+                         currentSong={this.state.currentSong} 
+                         songEnded={this.songEnded} 
+                         />;
+        }
+        
         return (
             <div style={{borderRadius: '7px', margin: '3px'}} className='row bg-light'>
                 <div className='offset-lg-1 col-lg-5'>
@@ -116,21 +146,16 @@ class QueueViewer extends React.Component{
                         click={this.PlayerView}
                         val={this.state.showPlayer === true ? 'Close' : 'Play Queue'} 
                         />
-                    {this.state.showPlayer === true ? 
-                        <QueuePlayer 
-                            id={this.props.id} 
-                            divClass='row justify-content-center' 
-                            currentSong={this.state.currentSong} 
-                            songEnded={this.songEnded} 
-                            /> : null}
+                    {player}
                 </div>
                 <div>&nbsp;</div>
                 <div className='col-lg-6'>
-                    <div className='row justify-content-center'>
-                        <AddQueueSongPopup id={this.props.id} refreshSongs={this.queueSongs} />
-                    </div>
                     <div>
                         {array}
+                    </div>
+                    &nbsp;
+                    <div className='row justify-content-center'>
+                        <AddQueueSongPopup id={this.props.id} refreshSongs={this.queueSongs} />
                     </div>
                 </div>
             </div>
