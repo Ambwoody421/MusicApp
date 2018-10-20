@@ -17,6 +17,8 @@ public class DatabaseConnection {
     private String password ="toor";
     @Value("${db.server}")
     private String server ="localhost";
+    @Value("${db.port}")
+    private String port ="3306";
     private static BasicDataSource dataSource;
 
     public DatabaseConnection() {
@@ -25,9 +27,9 @@ public class DatabaseConnection {
     @PostConstruct
     public void setConnection() {
         BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setUsername("root");
-        dataSource.setPassword("toor");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/");
+        dataSource.setUsername(this.user);
+        dataSource.setPassword(this.password);
+        dataSource.setUrl("jdbc:mysql://"+this.server+":"+this.port+"/");
         dataSource.setInitialSize(3);
         dataSource.setMinIdle(3);
         dataSource.setDefaultAutoCommit(false);

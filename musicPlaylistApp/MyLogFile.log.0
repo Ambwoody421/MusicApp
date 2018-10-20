@@ -13011,3 +13011,5 @@ java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'Alex' for ke
 
 Oct 20, 2018 4:39:37 PM app.config.MyLog logMessage
 INFO: Gathered all groups owned by User: 48
+Oct 20, 2018 4:43:16 PM app.config.MyLog logMessage
+INFO: Retrieved All artists by letter
