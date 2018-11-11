@@ -1,5 +1,5 @@
 import React from 'react'
-import {status, json} from '../../modules/functions'
+import {status, json, text} from '../../modules/functions'
 import Config from '../../modules/config'
 import InputWrapper from '../components/formFields/InputWrapper'
 import ButtonWrapper from '../components/ButtonWrapper'
@@ -86,13 +86,12 @@ class NewSongForm extends React.Component{
         fetch('http://'+Config.ip+':8080/song/addNewSong', {
             method: 'POST',
             credentials: 'include',
-            headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+            headers: {'Accept': 'text/plain', 'Content-Type': 'application/json'},
             body: JSON.stringify(request)
         }).then(status)
-            .then(json)
+            .then(text)
             .then((d) => {
-            var message = 'Song ' + d.title + ' was successfully created.'
-            this.setState({outcomeMessage: message, url: '', artist: '', artistChoices: []});
+            this.setState({outcomeMessage: d, url: '', artist: '', artistChoices: [], queryArtistFlag: true});
 
         })
             .catch(error =>

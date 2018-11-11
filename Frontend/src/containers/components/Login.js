@@ -1,7 +1,7 @@
 import React from 'react'
 import ButtonWrapper from './ButtonWrapper'
 import InputWrapper from './formFields/InputWrapper'
-import {status, json, text} from '../../modules/functions'
+import {status, text} from '../../modules/functions'
 import Config from '../../modules/config'
 
 class Login extends React.Component {
@@ -32,12 +32,12 @@ class Login extends React.Component {
         fetch('http://'+Config.ip+':8080/user/validateUser', {
             credentials: 'include',
             method: 'POST',
-            headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json'},
             body: request
         }).then(status)
-            .then(json)
-            .then(function(data) {
-            window.location.assign('http://'+Config.ip+':3000/')
+            .then(text)
+            .then((data) => {
+            this.setState({outcome: data});
         })
             .catch(error =>
                    this.setState({outcome: error.message}));

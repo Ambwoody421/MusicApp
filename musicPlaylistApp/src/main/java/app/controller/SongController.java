@@ -34,7 +34,7 @@ public class SongController {
     @POST
     @Path("/addNewSong")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public Response addSong(Song song, @CookieParam("sessId") String sessionId){
 
         try {
@@ -55,21 +55,21 @@ public class SongController {
 
             String title = YoutubeAPI.getVideoTitle(videoId, key);
             song.setTitle(title);
-            song.setFilepath(song.getArtist() + "\\" + title + "-" + videoId + ".mp3");
+            song.setFilepath(song.getArtist().substring(0,1).toUpperCase() + "\\" + song.getArtist() + "\\" + title + "-" + videoId + ".mp3");
 
             if(!YoutubeAPI.downloadSong(song, baseMusicFilepath)) {
                 throw new Exception("Could not download new song");
             }
 
             if(song.insertNewSong()){
-                return Response.status(200).entity(song).build();
+                return Response.status(200).entity("Success adding song "+ song.getTitle()).build();
             }
             else{
                 throw new Exception("Could not create new song");
             }
 
         } catch (Exception e) {
-            return Response.status(400).entity(e.getMessage()).build();
+            return Response.status(200).entity(e.getMessage()).build();
         }
 
     }

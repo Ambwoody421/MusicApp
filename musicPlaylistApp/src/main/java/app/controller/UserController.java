@@ -61,7 +61,7 @@ public class UserController {
     @POST
     @Path("/validateUser")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public Response validateUser(User user){
 
         try {
@@ -75,7 +75,7 @@ public class UserController {
 
                 NewCookie cookie = CookieFactory.getCookie(session);
 
-                return Response.ok().cookie(cookie).entity(user).build();
+                return Response.ok().cookie(cookie).entity("Successfully Logged In").build();
             }
             else{
                 throw new Exception("Could not validate User");
@@ -83,7 +83,7 @@ public class UserController {
 
         } catch (Exception e) {
             String s = "Failure";
-            return Response.status(400).entity(s).build();
+            return Response.status(200).entity(s).build();
         }
 
     }
