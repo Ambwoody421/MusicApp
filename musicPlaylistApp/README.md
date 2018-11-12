@@ -1,9 +1,9 @@
-Add a application.properties file under resources folder with the following format:
+Add a application.properties file under resources folder with the following format: <br />
 
-apiKey=
-baseMusicFilepath=
-frontendConfigFilepath=
-db.user=
-db.pass=
-db.server=
-db.port=
+apiKey= <br />
+baseMusicFilepath= <br />
+frontendConfigFilepath= <br />
+db.user= <br />
+db.pass= <br />
+db.server= <br />
+db.port= <br />

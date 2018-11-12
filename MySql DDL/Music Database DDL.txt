@@ -1,0 +1,158 @@
+CREATE TABLE IF NOT EXISTS `music_database`.`user_session` (
+  `session_id` VARCHAR(36) NOT NULL,
+  `user_id` INT(11) NOT NULL,
+  `unixTimestamp` INT(11) NOT NULL,
+  PRIMARY KEY (`session_id`),
+  INDEX `user_id_idx` (`user_id` ASC),
+  CONSTRAINT `user_id`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `music_database`.`users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+CREATE TABLE IF NOT EXISTS `music_database`.`users_in_group` (
+  `group_id` INT(11) NOT NULL,
+  `user_id` INT(11) NOT NULL,
+  `user_type_id` INT(11) NOT NULL,
+  PRIMARY KEY (`group_id`, `user_id`),
+  INDEX `user_id_fk_idx` (`user_id` ASC),
+  INDEX `user_type_id_fk_idx` (`user_type_id` ASC),
+  CONSTRAINT `group_id_fk`
+    FOREIGN KEY (`group_id`)
+    REFERENCES `music_database`.`music_group` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION,
+  CONSTRAINT `user_id_fk`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `music_database`.`users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION,
+  CONSTRAINT `user_type_id_fk`
+    FOREIGN KEY (`user_type_id`)
+    REFERENCES `music_database`.`user_type_reference` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+CREATE TABLE IF NOT EXISTS `music_database`.`user_type_reference` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `user_type` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `user_type_UNIQUE` (`user_type` ASC))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+
+
+CREATE TABLE IF NOT EXISTS `music_database`.`users` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) CHARACTER SET 'latin1' COLLATE 'latin1_general_cs' NOT NULL,
+  `password` VARCHAR(45) CHARACTER SET 'latin1' COLLATE 'latin1_general_cs' NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+
+
+CREATE TABLE IF NOT EXISTS `music_database`.`music_group` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+
+
+CREATE TABLE IF NOT EXISTS `music_database`.`artists` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `artist` VARCHAR(200) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `artist_UNIQUE` (`artist` ASC))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8
+
+
+CREATE TABLE IF NOT EXISTS `music_database`.`group_playlists` (
+  `playlistId` INT(11) NOT NULL AUTO_INCREMENT,
+  `groupId` INT(11) NOT NULL,
+  `playlistName` VARCHAR(150) NOT NULL,
+  PRIMARY KEY (`playlistId`),
+  UNIQUE INDEX `groupId_playlistName` (`groupId` ASC, `playlistName` ASC),
+  CONSTRAINT `groupId`
+    FOREIGN KEY (`groupId`)
+    REFERENCES `music_database`.`music_group` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8
+
+
+CREATE TABLE IF NOT EXISTS `music_database`.`songs` (
+  `filepath` VARCHAR(500) NOT NULL,
+  `title` VARCHAR(1000) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `artist` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `filepath_UNIQUE` (`filepath` ASC),
+  INDEX `artist_Id_FK_idx` (`artist` ASC),
+  CONSTRAINT `artist_Id_FK`
+    FOREIGN KEY (`artist`)
+    REFERENCES `music_database`.`artists` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8
+
+CREATE TABLE IF NOT EXISTS `music_database`.`group_queue` (
+  `groupId` INT(11) NOT NULL,
+  `songId` INT(11) NOT NULL,
+  `orderId` INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`orderId`),
+  INDEX `groupId_ix` (`groupId` ASC),
+  INDEX `songId_FK_idx` (`songId` ASC),
+  CONSTRAINT `groupId_FK`
+    FOREIGN KEY (`groupId`)
+    REFERENCES `music_database`.`music_group` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION,
+  CONSTRAINT `songId_FK`
+    FOREIGN KEY (`songId`)
+    REFERENCES `music_database`.`songs` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8
+
+
+CREATE TABLE IF NOT EXISTS `music_database`.`playlist_songs` (
+  `playlistId` INT(11) NOT NULL,
+  `songId` INT(11) NOT NULL,
+  INDEX `playlists` (`playlistId` ASC),
+  INDEX `songId_idx` (`songId` ASC),
+  CONSTRAINT `playlistId`
+    FOREIGN KEY (`playlistId`)
+    REFERENCES `music_database`.`group_playlists` (`playlistId`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `songId`
+    FOREIGN KEY (`songId`)
+    REFERENCES `music_database`.`songs` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+
+
+
+
