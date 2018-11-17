@@ -57,6 +57,7 @@ public class SessionController {
         }
     }
 
+    /*
     @POST
     @Path("/cookie")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -69,6 +70,7 @@ public class SessionController {
         return Response.ok().entity("Hello").cookie(c).build();
 
     }
+    */
 
     @POST
     @Path("/test")

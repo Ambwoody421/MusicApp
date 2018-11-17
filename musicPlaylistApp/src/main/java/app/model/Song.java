@@ -201,7 +201,10 @@ public class Song {
 
     public File retrieveSongAudio(String baseFilePath){
 
-        File file = new File(baseFilePath + "\\" + this.getFilepath());
+        //Windows
+        // File file = new File(baseFilePath + "/" + this.getFilepath());
+        // linux
+        File file = new File(baseFilePath + "/" + this.getFilepath());
 
         return file;
 

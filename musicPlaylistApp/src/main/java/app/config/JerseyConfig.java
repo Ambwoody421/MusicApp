@@ -15,5 +15,6 @@ public class JerseyConfig extends ResourceConfig {
         register(SongController.class);
         register(PlaylistController.class);
         register(QueueController.class);
+        register(AdminController.class);
     }
 }

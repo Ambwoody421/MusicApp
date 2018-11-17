@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.util.Enumeration;
 
 @Component
 public class CorsFilter extends OncePerRequestFilter {
@@ -26,15 +29,31 @@ public class CorsFilter extends OncePerRequestFilter {
 
     @PostConstruct
     public void setup(){
-        try {
-            ip = InetAddress.getLocalHost().getHostAddress();
+
+                Enumeration e = null;
+                try {
+                    e = NetworkInterface.getNetworkInterfaces();
+                } catch (SocketException e1) {
+                    e1.printStackTrace();
+                }
+                while(e.hasMoreElements())
+                {
+                    NetworkInterface n = (NetworkInterface) e.nextElement();
+                    Enumeration ee = n.getInetAddresses();
+                    while (ee.hasMoreElements())
+                    {
+
+                        InetAddress i = (InetAddress) ee.nextElement();
+
+                        if(i.getHostAddress().startsWith("192")){
+                            ip = i.getHostAddress();
+                        }
+
+                    }
+                }
 
             MyLog.logMessage("IP registered as: " + ip);
 
-
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
 
         try {
             JSONObject obj = new JSONObject();
@@ -47,8 +66,8 @@ public class CorsFilter extends OncePerRequestFilter {
 
             MyLog.logMessage("Wrote Config Successfully");
 
-        } catch (FileNotFoundException e) {
-            MyLog.logException(e);
+        } catch (FileNotFoundException s) {
+            MyLog.logException(s);
         }
     }
 

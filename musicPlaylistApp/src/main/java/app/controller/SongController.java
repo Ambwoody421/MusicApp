@@ -55,7 +55,11 @@ public class SongController {
 
             String title = YoutubeAPI.getVideoTitle(videoId, key);
             song.setTitle(title);
-            song.setFilepath(song.getArtist().substring(0,1).toUpperCase() + "\\" + song.getArtist() + "\\" + title + "-" + videoId + ".mp3");
+            //WIndows
+            // song.setFilepath(song.getArtist().substring(0,1).toUpperCase() + "\\" + song.getArtist() + "\\" + title + "-" + videoId + ".mp3");
+
+            song.setFilepath(song.getArtist().substring(0,1).toUpperCase() + "/" + song.getArtist() + "/" + title + "-" + videoId + ".mp3");
+            MyLog.logMessage("Filepath: " + song.getFilepath());
 
             if(!YoutubeAPI.downloadSong(song, baseMusicFilepath)) {
                 throw new Exception("Could not download new song");

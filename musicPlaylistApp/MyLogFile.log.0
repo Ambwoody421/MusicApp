@@ -14582,3 +14582,39 @@ Nov 11, 2018 5:32:06 PM app.config.MyLog logMessage
 INFO: Gathered all songs from group queue: 25
 Nov 11, 2018 5:32:22 PM app.config.MyLog logMessage
 INFO: Gathered all groups owned by User: 52
+Nov 12, 2018 1:16:09 PM app.config.MyLog logMessage
+INFO: Retrieved All artists by letter
+Nov 12, 2018 1:16:31 PM app.config.MyLog logMessage
+INFO: Retrieved All artists by letter
+Nov 12, 2018 1:16:56 PM app.config.MyLog logMessage
+INFO: Successfully downloaded song: https://www.youtube.com/watch?v=lL2ZwXj1tXM
+Nov 12, 2018 1:16:56 PM app.config.MyLog logMessage
+INFO: Success creating Song: Three Days Grace - Never Too Late
+Nov 12, 2018 1:16:59 PM app.config.MyLog logMessage
+INFO: Gathered all groups owned by User: 52
+Nov 12, 2018 1:17:01 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 25
+Nov 12, 2018 1:17:02 PM app.config.MyLog logMessage
+INFO: Retrieved All artists
+Nov 12, 2018 1:17:05 PM app.config.MyLog logMessage
+INFO: Retrieved All songs for artist: 49
+Nov 12, 2018 1:17:11 PM app.config.MyLog logMessage
+INFO: Success adding Song: 69 to group queue 25
+Nov 12, 2018 1:17:11 PM app.config.MyLog logMessage
+INFO: Gathered all songs from group queue: 25
+Nov 16, 2018 10:12:55 PM app.config.MyLog logMessage
+INFO: Success validating User: Alex
+Nov 16, 2018 10:12:55 PM app.config.MyLog logMessage
+INFO: Session: f9f25248-bb18-4fb7-9198-cd6061387a73  created for user: 52
+Nov 16, 2018 10:17:02 PM app.config.MyLog logMessage
+INFO: Success validating User: Alex
+Nov 16, 2018 10:17:02 PM app.config.MyLog logMessage
+INFO: Session: 6fbb5fba-0d6c-4b1c-a0f8-d5b6e5d41c4a  created for user: 52
+Nov 16, 2018 10:19:50 PM app.config.MyLog logMessage
+INFO: Success validating User: Alex
+Nov 16, 2018 10:19:50 PM app.config.MyLog logMessage
+INFO: Session: b289cb7e-8103-403f-b7ef-f937364f76ff  created for user: 52
+Nov 16, 2018 10:31:44 PM app.config.MyLog logMessage
+INFO: Success validating User: Alex
+Nov 16, 2018 10:31:45 PM app.config.MyLog logMessage
+INFO: Session: cd7631a8-2d6e-4fd5-9bed-db29427ab7fe  created for user: 52

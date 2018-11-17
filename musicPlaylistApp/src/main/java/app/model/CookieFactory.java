@@ -18,9 +18,10 @@ public class CookieFactory {
     }
 
 
-    public static NewCookie getCookie(String test) {
+    public static NewCookie getUserIdCookie(Integer id) {
 
-        NewCookie c = new NewCookie("sessId",test,"/","","",1800,false);
+        String userId = id.toString();
+        NewCookie c = new NewCookie("userId",userId,"/","","",120,false);
         return c;
     }
 }

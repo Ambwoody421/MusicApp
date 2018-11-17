@@ -53,7 +53,10 @@ public class YoutubeAPI {
         String download_path = baseFilePath;
 
         // if artist directory does not exist, make one
-        File directory = new File(download_path + "\\" + song.getArtist().substring(0,1).toUpperCase() + "\\" + song.getArtist());
+        // Windows
+        // File directory = new File(download_path + "\\" + song.getArtist().substring(0,1).toUpperCase() + "\\" + song.getArtist());
+
+        File directory = new File(download_path + "/" + song.getArtist().substring(0,1).toUpperCase() + "/" + song.getArtist());
         if(!directory.exists()){
             if(!directory.mkdir()){
                 return false;
@@ -61,15 +64,26 @@ public class YoutubeAPI {
         }
 
         //check if song already exists
-        File newSong = new File(baseFilePath + "\\" + song.getFilepath());
+        // windows
+        // File newSong = new File(baseFilePath + "\\" + song.getFilepath());
+
+        File newSong = new File(baseFilePath + "/" + song.getFilepath());
         if(newSong.exists()) {
             return false;
         }
 
+        /* windows
         String[] command =
                 {
                         "cmd",
                 };
+                */
+        // linux
+        String[] command =
+                {
+                        "/bin/sh"
+                };
+
         Process p;
         try {
             p = Runtime.getRuntime().exec(command);
@@ -77,7 +91,12 @@ public class YoutubeAPI {
             new Thread(new SyncPipe(p.getInputStream(), System.out)).start();
             PrintWriter stdin = new PrintWriter(p.getOutputStream());
             stdin.println("cd \""+directory+"\"");
-            stdin.println("\"" + baseFilePath + "\\\"" + "youtube-dl.exe --extract-audio --audio-format mp3 "+song.getUrl());
+
+             // windows
+            // stdin.println("\"" + baseFilePath + "\\\"" + "youtube-dl.exe --extract-audio --audio-format mp3 "+song.getUrl());
+
+            // Linux
+            stdin.println("youtube-dl --extract-audio --audio-format mp3 "+song.getUrl());
             stdin.close();
             p.waitFor();
 

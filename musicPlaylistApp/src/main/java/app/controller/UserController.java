@@ -74,8 +74,9 @@ public class UserController {
                 session.createNewSession();
 
                 NewCookie cookie = CookieFactory.getCookie(session);
+                NewCookie userIdCookie = CookieFactory.getUserIdCookie(user.getId());
 
-                return Response.ok().cookie(cookie).entity("Successfully Logged In").build();
+                return Response.ok().cookie(cookie).cookie(userIdCookie).entity("Successfully Logged In").build();
             }
             else{
                 throw new Exception("Could not validate User");
